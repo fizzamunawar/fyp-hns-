@@ -1,0 +1,64 @@
+﻿@model IEnumerable<fyp_hunger_nd_spice_.Models.admin>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a class="btn btn-theme btn-lg" href="@Url.Action("Create","admins")">Add new admin </a>
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Admin_name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Admin_Role)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Admin_email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Admin_password)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Admin_contact)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Admin_address)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Admin_name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Admin_Role)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Admin_email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Admin_password)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Admin_contact)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Admin_address)
+        </td>
+        <td>
+            <a class="btn btn-primary fa fa-edit" href=" @Url.Action("Edit", "admins", new { id = item.Admin_id }) "></a>
+            <a class="btn btn-success fa fa-book" href=" @Url.Action("Details", "admins", new { id = item.Admin_id })"></a>
+            <a class="btn btn-danger fa fa-trash" href=" @Url.Action("Delete", "admins", new { id = item.Admin_id })"></a>
+           
+        </td>
+    </tr>
+}
+
+</table>
