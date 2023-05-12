@@ -14,7 +14,7 @@ namespace fyp_hunger_nd_spice_.Controllers
 {
     public class productsController : Controller
     {
-        private Model1 db = new Model1();
+        private Model db = new Model();
         // GET: products
         public ActionResult Index()
         {

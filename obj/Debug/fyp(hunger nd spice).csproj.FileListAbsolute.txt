@@ -87,3 +87,5 @@ C:\web\fyp(hunger nd spice)\bin\CloudinaryDotNet.dll
 C:\web\fyp(hunger nd spice)\bin\System.Text.Encodings.Web.dll
 C:\web\fyp(hunger nd spice)\bin\CloudinaryDotNet.xml
 C:\web\fyp(hunger nd spice)\bin\System.Text.Encodings.Web.xml
+C:\web\fyp(hunger nd spice)\obj\Debug\fyp_hunger_nd_spice_.Migrations.orderchanges.resources
+C:\web\fyp(hunger nd spice)\obj\Debug\fyp_hunger_nd_spice_.Migrations.order.resources

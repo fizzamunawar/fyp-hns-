@@ -10,6 +10,11 @@ namespace fyp_hunger_nd_spice_.Models
     [Table("product")]
     public partial class product
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public product()
+        {
+            Orderdetails = new HashSet<Orderdetail>();
+        }
         [Key]
         public int Products_id { get; set; }
  
@@ -30,6 +35,14 @@ namespace fyp_hunger_nd_spice_.Models
         public int? category_fid { get; set; }
 
         public virtual Category Category { get; set; }
+
+        [NotMapped]
+        
+        public int pro_quan { get; set; }
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+
+        public virtual ICollection<Orderdetail> Orderdetails { get; set; }
 
     }
 }

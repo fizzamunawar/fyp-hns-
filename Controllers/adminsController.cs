@@ -12,7 +12,7 @@ namespace fyp_hunger_nd_spice_.Controllers
 {
     public class adminsController : Controller
     {
-        private Model1 db = new Model1();
+        private Model db = new Model();
 
         // GET: admins
         public ActionResult Index()

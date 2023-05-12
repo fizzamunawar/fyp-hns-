@@ -1,0 +1,85 @@
+﻿@model fyp_hunger_nd_spice_.Models.Menu
+
+@{ Layout= "~/Views/Shared/_layoutcustomer.cshtml"; }
+
+            <h1 class="display-3 text-center text-white mb-3 animated slideInDown">Food Menu</h1>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb justify-content-center text-uppercase">
+                    <li class="breadcrumb-item"><a href="#">Home</a></li>
+                    <li class="breadcrumb-item"><a href="#">Pages</a></li>
+                    <li class="breadcrumb-item text-white active" aria-current="page">Menu</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+</div>
+<!-- Navbar & Hero End -->
+<!-- Menu Start -->
+<div class="container-xxl py-5">
+    <div class="container ">
+        <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+
+            <h5 class="section-title ff-secondary text-center text-primary fw-normal">Food Menu</h5>
+            <h1 class="mb-5">Most Popular Items</h1>
+
+        </div>
+        <div class="tab-class text-center wow fadeInUp" data-wow-delay="0.1s">
+            @foreach (var c in Model.cat)
+            {
+                <ul class="nav d-inline-flex justify-content-center border-bottom mb-5">
+
+                    <li class="nav-item">
+                        <a class="d-flex align-items-center text-start mx-3 ms-0 pb-3 active" href="@Url.Action("Menu","Home", new { id=c.Cat_ID  })">
+                            <i class="fa fa-utensils fa-2x text-primary"></i>
+                            <div class="ps-3">
+
+                                <h6 class="mt-n1 mb-0">@c.Cusinie_name<small class="text-muted">(@c.products.Count())</small></h6>
+                            </div>
+                        </a>
+                    </li>
+
+                </ul>
+            }
+            <div class="tab-content">
+                <div id="tab-1" class="tab-pane fade show p-0 active">
+                    <div class="row g-4">
+                        @foreach (var p in Model.pro)
+                        {
+
+                            <div class="col-lg-6">
+                                <div class="d-flex align-items-center">
+                                    <div class="product-image">
+
+                                        <img class="flex-shrink-0 img-fluid rounded" src="@Url.Content(p.Products_pic)" alt="" style="width: 90px; height:80px;">
+                                        <div class="product-action pro12 ">
+
+                                            <a href="@Url.Action("addtocart","Home", new {id= p.Products_id})"><i class="fa fa-cart-plus"></i></a>
+                                        </div>
+
+                                    </div>
+                                    <div class="w-100 d-flex flex-column text-start ps-4">
+                                        <h5 class="d-flex justify-content-between border-bottom pb-2">
+                                            <span>@p.Products_name</span>
+                                            <span class="text-primary">@p.Products_price</span>
+                                        </h5>
+                                        <small class="fst-italic">@p.Products_description</small>
+                                    </div>
+                                </div>
+                            </div>}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+
+
+
+<!-- Menu End -->
+<script type="text/javascript">
+    window.onload = function ()
+    { window.scrollBy(0, 350); }
+</script>
