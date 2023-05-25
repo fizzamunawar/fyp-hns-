@@ -13,7 +13,9 @@ namespace fyp_hunger_nd_spice_.Models
         public Category()
         {
             products = new HashSet<product>();
+          
         }
+    
 
         [Key]
         public int Cat_ID { get; set; }
@@ -25,5 +27,6 @@ namespace fyp_hunger_nd_spice_.Models
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<product> products { get; set; }
+      
     }
 }

@@ -1,0 +1,171 @@
+﻿@using fyp_hunger_nd_spice_.Models
+
+
+@{
+    int row = 0;
+    int total_qua = 0;
+    decimal totalbill = 0;
+    Layout= "~/Views/Shared/_layoutadmin.cshtml";
+}
+
+
+<!-- Breadcrumb Start -->
+<center>
+    <div class="breadcrumb-wrap">
+        <div class="container-fluid">
+            <h1>Purchase made successfully!</h1>
+
+            <h5 class="breadcrumb-item active">Thanks for your trust</h5>
+
+
+        </div>
+    </div>
+</center>
+<!-- Breadcrumb End -->
+<!-- Cart Start -->
+<div class="cart-page">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-9">
+                <div class="cart-page-inner">
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-hover">
+                            <thead class="thead-dark">
+                                <tr>
+                                    <th style="font-size:18px;">Product</th>
+                                    <th style="font-size:18px;">Price</th>
+                                    <th style="font-size:18px;">Quantity</th>
+                                    <th style="font-size:18px;">Total</th>
+
+                                </tr>
+                            </thead>
+                            <tbody class="align-middle">
+                                @if (Session["mycart"] !=null)
+                                {
+
+                                    foreach (var item in (List<Ingredient>)Session["mycart"])
+                                    {
+
+                                        <tr>
+                                            <td>
+                                                <div class="img">
+                                                    <a href="#"><img src="@Url.Content(item.ingredient_pic)" alt="Image"></a>
+                                                    <p>
+                                                        <a class="#FEA116" href="#" style="font-size:20px">
+
+                                                            @item.ingredient_name
+
+                                                        </a>
+                                                        <br />
+                                                        <i style="font-size:13px">
+                                                            @item.ingredient_description
+
+                                                        </i>
+                                                    </p>
+                                                </div>
+                                            </td>
+                                            <td>Rs. @item.ingredient_price</td>
+
+                                            <td>
+
+
+                                                @item.pro_quant
+
+
+                                            </td>
+                                            <td>@(decimal.Parse(item.ingredient_price.ToString())* int.Parse(item.pro_quant.ToString()))</td>
+
+                                        </tr>
+                                        row++;
+                                        total_qua+=item.pro_quant;
+
+                                        totalbill+= (decimal.Parse(item.ingredient_price.ToString())* int.Parse(item.pro_quant.ToString()));
+
+                                    }
+
+                                    /*Session["Totalamount"]=totalbill; */
+
+                                }
+                              
+
+
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <td> <b style="font-size:20px">Total bill</b></td>
+                                    <td></td>
+                                    <td><b>@total_qua</b></td>
+                                    <td><b>@totalbill</b></td>
+
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3">
+                <div class="cart-page-inner">
+                    <div class="row">
+
+                        <div class="col-md-12">
+                            <div class="cart-summary">
+                                <div class="cart-content">
+                                    <h3>Cart Summary</h3>
+                                    <p>Sub Total<span>@totalbill</span></p>
+                                    <p>Discount<span>Rs.0</span></p>
+                                    <p style="font-size:17px">Grand Total<span>@totalbill</span></p>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            @using (Html.BeginForm("parchasenow", "parchase"))
+            {
+                <div class="checkout">
+                    <div class="container-fluid">
+                        <div class="row">
+                            @if (Session["order"] != null)
+                            {
+                                Order o = (Order)Session["order"];
+
+                                <div class="col-lg-12 col-sm-12">
+                                    <div class="order-box">
+                                        <H1>seller details</H1>
+                                        <div class="d-flex">
+                                            <h3>Seller Name</h3>
+                                            <div class="ml-auto font-weight-bold">@o.Order_Name</div>
+                                        </div>
+                                        <div class="d-flex">
+                                            <h3>Seller Email</h3>
+                                            <div class="ml-auto font-weight-bold">@o.Order_Email</div>
+                                        </div>
+                                        <hr class="my-1">
+                                        <div class="d-flex">
+                                            <h3>Seller contact detail</h3>
+                                            <div class="ml-auto font-weight-bold">@o.Order_Contact</div>
+                                        </div>
+                                        <div class="d-flex">
+                                            <h3>Seller address</h3>
+                                            <div class="ml-auto font-weight-bold">@o.Order_Address</div>
+                                        </div>
+                                        <div class="d-flex">
+                                            <h3>Order status</h3>
+                                            <div class="ml-auto font-weight-bold">paid</div>
+                                        </div>
+                                        <hr>
+                                       
+                                    </div>
+                                </div>}
+
+                        </div>
+                    </div>
+                </div>
+            }
+
+        </div>
+    </div>
+</div>
+<!-- Cart End -->

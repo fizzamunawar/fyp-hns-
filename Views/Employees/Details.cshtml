@@ -1,0 +1,66 @@
+﻿@model fyp_hunger_nd_spice_.Models.Employee
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Employee</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Employee_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Employee_name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Employee_Role)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Employee_Role)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Employee_Gender)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Employee_Gender)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Employee_email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Employee_email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Employee_contact)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Employee_contact)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Employee_address)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Employee_address)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Employee_id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

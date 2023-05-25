@@ -1,0 +1,35 @@
+﻿@model IEnumerable<fyp_hunger_nd_spice_.Models.Cat>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a class="btn btn-theme btn-lg" href="@Url.Action("Create","Cats")">Add new item </a>
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Cat_name)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.Cat_name)
+    </td>
+    <td>
+        <a class="btn btn-primary fa fa-edit" href="@Url.Action("Edit", "Cats", new { id=item.Cate_ID })"></a>
+        <a class="btn btn-success fa fa-book" href="@Url.Action("Details", "Cats", new { id=item.Cate_ID })"></a>
+        <a class="btn btn-danger fa fa-trash" href=" @Url.Action("Delete", "Cats", new { id=item.Cate_ID }) "></a>
+
+
+    </td>
+</tr>
+}
+
+</table>

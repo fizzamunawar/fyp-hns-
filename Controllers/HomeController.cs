@@ -99,6 +99,11 @@ namespace fyp_hunger_nd_spice_.Controllers
             List<product> list = (List<product>)Session["mycart"];
 
             list[rowno].pro_quan--;
+            if (list[rowno].pro_quan<1)
+            {
+                list.RemoveAt(rowno);
+
+            }
             Session["mycart"]= list;
             return RedirectToAction("cart");
         }
@@ -125,7 +130,8 @@ namespace fyp_hunger_nd_spice_.Controllers
         public ActionResult paynow(Order o)
         {
             o.Order_date=System.DateTime.Now;
-            o.Order_type="COD";
+            o.Order_type="Sale";
+            o.Order_status="COD";
         
         
 
@@ -135,31 +141,31 @@ namespace fyp_hunger_nd_spice_.Controllers
 
         public ActionResult orderbooked()
 
-        {
-            Order o = (Order)Session["order"];
+        { Order o = (Order)Session["order"];
+           
 
 
-            /* //Define email parameters
+          /*
             string senderEmail = "fizzamunawar227@gmail.com";
             string recipientEmail = o.Order_Email;
             string subject = "Order Confirmation";
             string body = " <b>Hunger & Spice !</b> </br> Thanks for your order";
 
-            //// Create a MailMessage object
+          //Create a MailMessage object
             MailMessage mailMessage = new MailMessage(senderEmail, recipientEmail, subject, body);
 
-            //// Create a SmtpClient object
+          // Create a SmtpClient object
             SmtpClient smtpClient = new SmtpClient("smtp.gmail.com", 587);
 
-            //// Set the SMTP client properties
+            //Set the SMTP client properties
             smtpClient.EnableSsl = true;
             smtpClient.UseDefaultCredentials = false;
             smtpClient.Credentials = new System.Net.NetworkCredential("fizzamunawar227@gmail.com", "gcliobddrvgwtjvo");
 
-            //// Send the email
+           //Send the email
             smtpClient.Send(mailMessage);
+            
             */
-
 
             db.Orders.Add(o);
             db.SaveChanges();

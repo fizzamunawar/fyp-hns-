@@ -29,22 +29,22 @@
                         <div class="billing-address">
                             <h2>Billing Address</h2>
                             <div class="row">
-                                <div class="col-md-6">
+                                <div class="col-md-6" aciton="/myaction.php" name="myForm" onsubmit="return validateForm()" method="post">
                                     <label>Name</label>
-                                    <input class="form-control" name="Order_Name" type="text" placeholder="Name" required>
+                                    <input class="form-control" name="Order_Name" type="text" placeholder="Name" required><b><span class="formerror"></span></b>
                                 </div>
 
                                 <div class="col-md-6">
                                     <label>E-mail</label>
-                                    <input class="form-control" name="Order_Email" type="text" placeholder="E-mail" required>
+                                    <input class="form-control" name="Order_Email" type="text" placeholder="E-mail" required><b><span class="formerror"></span></b>
                                 </div>
                                 <div class="col-md-6">
                                     <label>Mobile No</label>
-                                    <input class="form-control" name="Order_Contact" type="text" placeholder="Mobile No" required>
+                                    <input class="form-control" name="Order_Contact" type="text" placeholder="Mobile No" required><b><span class="formerror"></span></b>
                                 </div>
                                 <div class="col-md-12">
                                     <label>Address</label>
-                                    <input class="form-control" type="text" name="Order_Address" placeholder="Address" required>
+                                    <input class="form-control" type="text" name="Order_Address" placeholder="Address" required><b><span class="formerror"></span></b>
                                 </div>
                             </div>
                         </div>
@@ -72,6 +72,58 @@
         </div>
     </div>
 }
+
 <script type="text/javascript">
     window.onload = function () { window.scrollBy(0, 400) }
+  /*  function clearErrors() {
+
+        errors = document.getElementsByClassName('formerror');
+        for (let item of errors) {
+            item.innerHTML = "";
+        }
+
+
+    }
+    function seterror(id, error) {
+        //sets error inside tag of id 
+        element = document.getElementById(id);
+        element.getElementsByClassName('formerror')[0].innerHTML = error;
+
+    }
+
+    function validateForm() {
+        var returnval = true;
+        clearErrors();
+
+        //perform validation and if validation fails, set the value of returnval to false
+        var name = document.forms['myForm']["fname"].value;
+        if (name.length < 5) {
+            seterror("name", "*Length of name is too short");
+            returnval = false;
+        }
+
+        if (name.length == 0) {
+            seterror("name", "*Length of name cannot be zero!");
+            returnval = false;
+        }
+
+        var email = document.forms['myForm']["femail"].value;
+        if (email.length > 15) {
+            seterror("email", "*Email length is too long");
+            returnval = false;
+        }
+
+        var phone = document.forms['myForm']["fphone"].value;
+        if (phone.length != 11) {
+            seterror("phone", "*Phone number should be of 11 digits!");
+            returnval = false;
+        }
+
+       
+
+        return returnval;
+    }
+    */
+
+  
 </script>

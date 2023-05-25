@@ -1,0 +1,58 @@
+﻿@model fyp_hunger_nd_spice_.Models.Ingredient
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Ingredient</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Cat.Cat_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cat.Cat_name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ingredient_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ingredient_name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ingredient_description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ingredient_description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ingredient_price)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ingredient_price)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ingredient_pic)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ingredient_pic)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ingredient_id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

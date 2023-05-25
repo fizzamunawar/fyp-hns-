@@ -10,19 +10,18 @@
     <title>Dashio - Bootstrap Admin Template</title>
 
     <!-- Favicons -->
-    <link href="~/Content/admin/img/favicon.png" rel="icon">
-    <link href="~/Content/admin/img/apple-touch-icon.png" rel="apple-touch-icon">
-
+    <link href="~/Content/Admin/img/favicon.png" rel="icon">
+    <link href="~/Content/Admin/img/apple-touch-icon.png" rel="apple-touch-icon">
     <!-- Bootstrap core CSS -->
-    <link href="~/Content/admin/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="~/Content/Admin/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <!--external css-->
-    <link href="~/Content/admin/lib/font-awesome/css/font-awesome.css" rel="stylesheet" />
-    <link rel="stylesheet" type="text/css" href="~/Content/admin/css/zabuto_calendar.css">
-    <link rel="stylesheet" type="text/css" href="~/Content/admin/lib/gritter/css/jquery.gritter.css" />
+    <link href="~/Content/Admin/lib/font-awesome/css/font-awesome.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="~/Content/Admin/css/zabuto_calendar.css">
+    <link rel="stylesheet" type="text/css" href="~/Content/Admin/lib/gritter/css/jquery.gritter.css" />
     <!-- Custom styles for this template -->
-    <link href="~/Content/admin/css/style.css" rel="stylesheet">
-    <link href="~/Content/admin/css/style-responsive.css" rel="stylesheet">
-    <script src="~/Content/admin/lib/chart-master/Chart.js"></script>
+    <link href="~/Content/Admin/css/style.css" rel="stylesheet">
+    <link href="~/Content/Admin/css/style-responsive.css" rel="stylesheet">
+    <script src="~/Content/Admin/lib/chart-master/Chart.js"></script>
 
     <!-- =======================================================
       Template Name: Dashio
@@ -34,9 +33,9 @@
 
 <body>
     <section id="container">
-        <!-- **********************************************************************************************************************************************************
-    TOP BAR CONTENT & NOTIFICATIONS
-    *********************************************************************************************************************************************************** -->
+        <!-- ****************************************************
+        TOP BAR CONTENT & NOTIFICATIONS
+        ***************************************************** -->
         <!--header start-->
         <header class="header black-bg">
             <div class="sidebar-toggle-box">
@@ -130,7 +129,7 @@
                             </li>
                             <li>
                                 <a href="index.html#">
-                                    <span class="photo"><img alt="avatar" src="~/Content/admin/img/ui-zac.jpg"></span>
+                                    <span class="photo"><img alt="avatar" src="~/Content/Admin/img/ui-zac.jpg"></span>
                                     <span class="subject">
                                         <span class="from">Zac Snider</span>
                                         <span class="time">Just now</span>
@@ -142,9 +141,8 @@
                             </li>
                             <li>
                                 <a href="index.html#">
-                                    <span class="photo"><img alt="avatar" src="~/Content/admin/img/ui-divya.jpg"></span>
+                                    <span class="photo"><img alt="avatar" src="~/Content/Admin/img/ui-divya.jpg"></span>
                                     <span class="subject">
-
                                         <span class="from">Divya Manian</span>
                                         <span class="time">40 mins.</span>
                                     </span>
@@ -155,7 +153,7 @@
                             </li>
                             <li>
                                 <a href="index.html#">
-                                    <span class="photo"><img alt="avatar" src="~/Content/admin/img/ui-danro.jpg"></span>
+                                    <span class="photo"><img alt="avatar" src="~/Content/Admin/img/ui-danro.jpg"></span>
                                     <span class="subject">
                                         <span class="from">Dan Rogers</span>
                                         <span class="time">2 hrs.</span>
@@ -167,7 +165,7 @@
                             </li>
                             <li>
                                 <a href="index.html#">
-                                    <span class="photo"><img alt="avatar" src="~/Content/admin/img/ui-sherman.jpg"></span>
+                                    <span class="photo"><img alt="avatar" src="~/Content/Admin/img/ui-sherman.jpg"></span>
                                     <span class="subject">
                                         <span class="from">Dj Sherman</span>
                                         <span class="time">4 hrs.</span>
@@ -238,65 +236,159 @@
             </div>
         </header>
         <!--header end-->
-        <!-- **********************************************************************************************************************************************************
-    MAIN SIDEBAR MENU
-    *********************************************************************************************************************************************************** -->
+        <!-- ****************************************************
+        MAIN SIDEBAR MENU
+        ***************************************************** -->
         <!--sidebar start-->
         <aside>
             <div id="sidebar" class="nav-collapse ">
                 <!-- sidebar menu start-->
                 <ul class="sidebar-menu" id="nav-accordion">
-                    <p class="centered"><a href="profile.html"><img src="~/Content/admin/img/ui-sam.jpg" class="img-circle" width="80"></a></p>
-                    <h5 class="centered">Sam Soffes</h5>
+                    <p class="centered"><a href="profile.html"><img src="~/Content/Admin/img/ui-sam.jpg" class="img-circle" width="80"></a></p>
+                    <h5 class="centered">Fizza Munawar<h5>
                     <li class="mt">
-                        <a class="active" href="@Url.Action("Indexadmin","Home")">
+                        <a class="active" href="@Url.Action("IndexAdmin" ,"home")">
                             <i class="fa fa-dashboard"></i>
                             <span>Dashboard</span>
                         </a>
                     </li>
-                    <li class="sub-menu">
-                        <a href="@Url.Action("Index","admins")">
+                    <li>
+                        <a href="@Url.Action("Index", "Admins")">
                             <i class="fa fa-desktop"></i>
-                            <span>Manage Admin Accounts</span>
+                            <span>Manage Admin Account</span>
                         </a>
-
+                    </li><li>
+                        <a href="@Url.Action("Index", "Employees")">
+                            <i class="fa fa-desktop"></i>
+                            <span>Manage Employees</span>
+                        </a>
                     </li>
 
                     <li class="sub-menu">
-                        <a href="@Url.Action("Index","Categories")">
-                            <i class="fa fa-th"></i>
-                            <span>Manage Cusinie</span>
+                        <a href="javascript:;">
+                            <i class="fa fa-list"></i>
+                            <span> Manage Categories</span>
                         </a>
+                        <ul class="sub">
+                            <li>
+                                <a href="@Url.Action("index" ,"Categories")">
+                                    <i class="fa fa-envelope"></i>
+                                    <span>Manage Cusinie </span>
 
+                                </a>
+                            </li>
+                            </ul>
+                            <ul class="sub">
+                            <li>
+                                <a href="@Url.Action("index" ,"Cats")">
+                                    <i class="fa fa-envelope"></i>
+                                    <span>Manage category </span>
+
+                                </a>
+                            </li>
+                            
+                        </ul>
                     </li>
-
+                  
                     <li class="sub-menu">
                         <a href="@Url.Action("Index","Products")">
-                            <i class="fa fa-table"></i>
-                            <span>Manage Menu </span>
+                            <i class=" fa fa-bar-chart-o"></i>
+                            <span>Manage products</span>
                         </a>
 
+                    </li>
+                    <li class="sub-menu">
+                        <a href="@Url.Action("Index","Ingredients")">
+                            <i class=" fa fa-calculator"></i>
+                            <span>Manage Ingredients</span>
+                        </a>
 
+                    </li>
+                    <li class="sub-menu">
+
+                        <a href="@Url.Action("parchase","parchase")">
+                            <i class=" fa fa-calculator"></i>
+                            <span>Manage Purchase</span>
+                        </a>
+                    </li>
+                    <li class="sub-menu">
+                        <a href="javascript:;">
+                            <i class="fa fa-list"></i>
+                            <span>Reports</span>
+                        </a>
+                        <ul class="sub">
+                          
+
+                            <li>
+                                <a href="transaction_report.html">Employees Report</a>
+                                <ul>
+                                    <li>
+                                        <a href="@Url.Action("employeereport" ,"Report")" ;">
+
+                                            <span>All employees Report</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="@Url.Action("waitersreport" ,"Report")" ;">
+
+                                            <span>Waiters Report</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="@Url.Action("Chefreport" ,"Report")" ;">
+
+                                            <span>Chef Report</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="@Url.Action("Deliverymanreport" ,"Report")" ;">
+
+                                            <span>Delivery Report</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="@Url.Action("CSreport" ,"Report")" ;">
+
+                                            <span>Cleaning Staff Report</span>
+                                        </a>
+                                    </li>
+                                </ul>
+
+                            </li>
+                            <li><a href="P&L_report.html">Profir & Loss Report</a></li>
+                            <li>
+                                <a href="transaction_report.html">Transaction Report</a>
+                                <ul>
+                                    <li>
+                                        <a href="@Url.Action("Parchasereport" ,"Report")" ;">
+                                            
+                                            <span>Parchase Report</span>
+                                        </a></li>
+                                    <li>
+                                        <a href="@Url.Action("Salereport" ,"Report")" ;">
+
+                                            <span>Sale Report</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                                </ul>
+                    </li>
                     
-
-                </ul>
+                
                 <!-- sidebar menu end-->
             </div>
         </aside>
         <!--sidebar end-->
+        <!-- ****************************************************-->
         <section id="main-content">
             <section class="wrapper">
                 <div class="row">
-                    <div class="col-lg-9 main-chart">
-                        @RenderBody()
-                    </div>
-                    <!-- /col-lg-3 -->
+                    @RenderBody()
                 </div>
-                <!-- /row -->
+
             </section>
         </section>
-        <!--main content end-->
-
+        <!--footer start-->
         <footer class="site-footer">
             <div class="text-center">
                 <p>
@@ -304,12 +396,12 @@
                 </p>
                 <div class="credits">
                     <!--
-                  You are NOT allowed to delete the credit link to TemplateMag with free version.
-                  You can delete the credit link only if you bought the pro version.
-                  Buy the pro version with working PHP/AJAX contact form: https://templatemag.com/dashio-bootstrap-admin-template/
-                  Licensing information: https://templatemag.com/license/
-                -->
-                    Created with Dashio template by <a href="https://templatemag.com/">TemplateMag</a>
+                      You are NOT allowed to delete the credit link to TemplateMag with free version.
+                      You can delete the credit link only if you bought the pro version.
+                      Buy the pro version with working PHP/AJAX contact form: https://templatemag.com/dashio-bootstrap-admin-template/
+                      Licensing information: https://templatemag.com/license/
+                    -->
+                 
                 </div>
                 <a href="index.html#" class="go-top">
                     <i class="fa fa-angle-up"></i>
@@ -318,84 +410,82 @@
         </footer>
         <!--footer end-->
     </section>
-            <!-- js placed at the end of the document so the pages load faster -->
-            <script src="~/Content/admin//jquery/jquery.min.js"></script>
+    <!-- js placed at the end of the document so the pages load faster -->
+    <script src="~/Content/Admin/lib/jquery/jquery.min.js"></script>
 
-            <script src="~/Content/admin/lib/bootstrap/js/bootstrap.min.js"></script>
-            <script class="include" type="text/javascript" src="~/Content/admin/lib/jquery.dcjqaccordion.2.7.js"></script>
-            <script src="~/Content/admin/lib/jquery.scrollTo.min.js"></script>
-            <script src="~/Content/admin/lib/jquery.nicescroll.js" type="text/javascript"></script>
-            <script src="~/Content/admin/lib/jquery.sparkline.js"></script>
-            <!--common script for all pages-->
-            <script src="~/Content/admin/lib/common-scripts.js"></script>
-            <script type="text/javascript" src="~/Content/admin/lib/gritter/js/jquery.gritter.js"></script>
-            <script type="text/javascript" src="~/Content/admin/lib/gritter-conf.js"></script>
-            <!--script for this page-->
-            <script src="~/Content/admin/lib/sparkline-chart.js"></script>
-            <script src="~/Content/admin/lib/zabuto_calendar.js"></script>
-            <script type="text/javascript">
-                $(document).ready(function () {
-                    var unique_id = $.gritter.add({
-                        // (string | mandatory) the heading of the notification
-                        title: 'Welcome to Dashio!',
-                        // (string | mandatory) the text inside the notification
-                        text: 'Hover me to enable the Close Button. You can hide the left sidebar clicking on the button next to the logo.',
-                        // (string | optional) the image to display on the left
-                        image: '~/Content/admin/img/ui-sam.jpg',
-                        // (bool | optional) if you want it to fade out on its own or just sit there
-                        sticky: false,
-                        // (int | optional) the time you want it to be alive for before fading out
-                        time: 8000,
-                        // (string | optional) the class name you want to apply to that specific message
-                        class_name: 'my-sticky-class'
-                    });
+    <script src="~/Content/Admin/lib/bootstrap/js/bootstrap.min.js"></script>
+    <script class="include" type="text/javascript" src="~/Content/Admin/lib/jquery.dcjqaccordion.2.7.js"></script>
+    <script src="~/Content/Admin/lib/jquery.scrollTo.min.js"></script>
+    <script src="~/Content/Admin/lib/jquery.nicescroll.js" type="text/javascript"></script>
+    <script src="~/Content/Admin/lib/jquery.sparkline.js"></script>
+    <!--common script for all pages-->
+    <script src="~/Content/Admin/lib/common-scripts.js"></script>
+    <script type="text/javascript" src="~/Content/Admin/lib/gritter/js/jquery.gritter.js"></script>
+    <script type="text/javascript" src="~/Content/Admin/lib/gritter-conf.js"></script>
+    <!--script for this page-->
+    <script src="~/Content/Admin/lib/sparkline-chart.js"></script>
+    <script src="~/Content/Admin/lib/zabuto_calendar.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function () {
+            var unique_id = $.gritter.add({
+                // (string | mandatory) the heading of the notification
+                title: 'Welcome to Dashio!',
+                // (string | mandatory) the text inside the notification
+                text: 'Hover me to enable the Close Button. You can hide the left sidebar clicking on the button next to the logo.',
+                // (string | optional) the image to display on the left
+                image: '~/Content/Admin/img/ui-sam.jpg',
+                // (bool | optional) if you want it to fade out on its own or just sit there
+                sticky: false,
+                // (int | optional) the time you want it to be alive for before fading out
+                time: 8000,
+                // (string | optional) the class name you want to apply to that specific message
+                class_name: 'my-sticky-class'
+            });
 
-                    return false;
-                });
-            </script>
-            <script type="application/javascript">
-                $(document).ready(function() {
-                  $("#date-popover").popover({
-                    html: true,
-                    trigger: "manual"
-                  });
-                  $("#date-popover").hide();
-                  $("#date-popover").click(function(e) {
-                    $(this).hide();
-                  });
+            return false;
+        });</script>
+    <script type="application/javascript">
+        $(document).ready(function() {
+          $("#date-popover").popover({
+            html: true,
+            trigger: "manual"
+          });
+          $("#date-popover").hide();
+          $("#date-popover").click(function(e) {
+            $(this).hide();
+          });
 
-                  $("#my-calendar").zabuto_calendar({
-                    action: function() {
-                      return myDateFunction(this.id, false);
-                    },
-                    action_nav: function() {
-                      return myNavFunction(this.id);
-                    },
-                    ajax: {
-                      url: "show_data.php?action=1",
-                      modal: true
-                    },
-                    legend: [{
-                        type: "text",
-                        label: "Special event",
-                        badge: "00"
-                      },
-                      {
-                        type: "block",
-                        label: "Regular event",
-                      }
-                    ]
-                  });
-                });
+          $("#my-calendar").zabuto_calendar({
+            action: function() {
+              return myDateFunction(this.id, false);
+            },
+            action_nav: function() {
+              return myNavFunction(this.id);
+            },
+            ajax: {
+              url: "show_data.php?action=1",
+              modal: true
+            },
+            legend: [{
+                type: "text",
+                label: "Special event",
+                badge: "00"
+              },
+              {
+                type: "block",
+                label: "Regular event",
+              }
+            ]
+          });
+        });
 
-                function myNavFunction(id) {
-                  $("#date-popover").hide();
-                  var nav = $("#" + id).data("navigation");
-                  var to = $("#" + id).data("to");
-                  console.log('nav ' + nav + ' to: ' + to.month + '/' + to.year);
-                }
-            </script>
+        function myNavFunction(id) {
+          $("#date-popover").hide();
+          var nav = $("#" + id).data("navigation");
+          var to = $("#" + id).data("to");
+          console.log('nav ' + nav + ' to: ' + to.month + '/' + to.year);
+        }
+    </script>
 </body>
 
 </html>
-

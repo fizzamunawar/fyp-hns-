@@ -15,6 +15,7 @@
         public int? Order_Fid { get; set; }
 
         public int? Product_fid { get; set; }
+        public int? ingredients_fid { get; set; } 
 
         [Column(TypeName = "numeric")]
         public decimal? price { get; set; }
@@ -24,6 +25,7 @@
         public virtual Order Order { get; set; }
 
         public virtual product product { get; set; }
+        public virtual Ingredient Ingredient { get; set; }
 
     }
 }

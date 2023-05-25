@@ -1,0 +1,170 @@
+﻿@using fyp_hunger_nd_spice_.Models
+@{
+
+    Layout = "~/Views/Shared/_Layoutadmin.cshtml";
+
+    int row = 0;
+    int total_qua = 0;
+    decimal totalbill = 0;
+}
+<!-- Breadcrumb Start -->
+<div class="breadcrumb-wrap">
+    <div class="container-fluid">
+        <h2>Stock</h2>
+        </ul>
+    </div>
+</div>
+<!-- Breadcrumb End -->
+<!-- Cart Start -->
+<div class="cart-page">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="cart-page-inner">
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-hover">
+                            <thead class="thead-dark">
+                                <tr>
+                                    <th style="font-size:18px;">Product</th>
+                                    <th style="font-size:18px;">Price</th>
+                                    <th style="font-size:18px;">Quantity</th>
+                                    <th style="font-size:18px;">Total</th>
+                                    <th style="font-size:18px;">Remove</th>
+                                </tr>
+                            </thead>
+                            <tbody class="align-middle">
+                                @if (Session["mycart"] !=null)
+                                {
+
+                                    foreach (var item in (List<Ingredient>)Session["mycart"])
+                                    {
+
+                                        <tr>
+                                            <td>
+                                                <div class="img">
+                                                    <a href="#"><img src="@Url.Content(item.ingredient_pic)" alt="Image"></a>
+                                                    <p>
+                                                        <a class="#FEA116" href="#" style="font-size:20px">
+
+                                                            @item.ingredient_name
+
+                                                        </a>
+                                                        <br />
+                                                        <i style="font-size:13px">
+                                                            @item.ingredient_description
+
+                                                        </i>
+                                                    </p>
+                                                </div>
+                                            </td>
+                                            <td>Rs. @item.ingredient_price</td>
+
+                                            <td>
+
+                                                <a href="@Url.Action("minus", "parchase", new { rowno = row })"><i class="fa fa-minus"></i></a>
+                                                @item.pro_quant
+                                                <a href="@Url.Action("plus", "parchase", new { rowno = row })"> <i class="fa fa-plus"></i></a>
+
+                                            </td>
+                                            <td>@(decimal.Parse(item.ingredient_price.ToString())* int.Parse(item.pro_quant.ToString()))</td>
+                                            <td><a href="@Url.Action("remove", "parchase", new { rowno = row })"><i class="fa fa-trash"></i></a></td>
+                                        </tr>
+                                        row++;
+                                        total_qua+=item.pro_quant;
+
+                                        totalbill+= (decimal.Parse(item.ingredient_price.ToString())* int.Parse(item.pro_quant.ToString()));
+
+                                    }
+
+                                    /*Session["Totalamount"]=totalbill; */
+
+                                }
+                                @if (Session["mycart"]== null || row==0)
+                                {
+                                    <tr><td colspan="6" align="center" style="font-size:20px;">Your cart is empty <a href="@Url.Action("parchase","parchase")">Click Here</a> to check products</td></tr>
+                                }
+
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <td> <b style="font-size:20px">Total bill</b></td>
+                                    <td></td>
+                                    <td><b>@total_qua</b></td>
+                                    <td><b>@totalbill</b></td>
+                                    <td></td>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<!-- Cart End -->
+<!-- Breadcrumb Start -->
+<div class="breadcrumb-wrap">
+    <div class="container-fluid">
+        <h2>Seller Detail</h2>
+        </ul>
+    </div>
+</div>
+<!-- Breadcrumb End -->
+<!-- Checkout Start -->
+@using (Html.BeginForm("parchasenow", "parchase"))
+{
+    <div class="checkout">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="checkout-inner">
+                        <div class="billing-address">
+
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label>Name</label>
+                                    <input class="form-control" name="Order_Name" type="text" placeholder="Name" required>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <label>E-mail</label>
+                                    <input class="form-control" name="Order_Email" type="text" placeholder="E-mail" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label>Mobile No</label>
+                                    <input class="form-control" name="Order_Contact" type="text" placeholder="Mobile No" required>
+                                </div>
+                                <div class="col-md-12">
+                                    <label>Address</label>
+                                    <input class="form-control" type="text" name="Order_Address" placeholder="Address" required>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="checkout-inner">
+                        <div class="cart-summary">
+                            <div class="cart-content">
+                                <h3>Purchase Summary</h3>
+                                <p>Sub Total<span>      @totalbill</span></p>
+                                <p>Discount<span>  Rs.0</span></p>
+                                <h4>Grand Total<span>      @totalbill</span></h4>
+                            </div>
+                            <div class="checkout-payment">
+
+                                <div class="checkout-btn">
+                                    <button>Purchase Now</button>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+<!-- Checkout End -->

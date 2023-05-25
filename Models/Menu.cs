@@ -10,5 +10,7 @@
     {
         public List<Category> cat { get; set; }
         public List<product> pro { get; set; }
+        public List<Ingredient> ingr { get; set; }
+        public List<Cat> cate { get; set; }
     }
 }

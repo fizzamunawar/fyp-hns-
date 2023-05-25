@@ -25,6 +25,9 @@
         [Required]
         [StringLength(50)]
         public string Order_type { get; set; }
+        [Required]
+        [StringLength(50)]
+        public string Order_status{ get; set; }
 
         [Required]
         [StringLength(50)]

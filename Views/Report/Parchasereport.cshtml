@@ -1,0 +1,43 @@
+﻿
+@model IEnumerable<fyp_hunger_nd_spice_.Models.Order>
+
+@{
+    Layout= "~/Views/Shared/_layoutadmin.cshtml";
+
+}
+<h2>Purchase report</h2>
+
+<table class="table table-bordered table-hover ">
+    <tr style="background-color: #4ECDC4">
+        <th align="center">Order ID</th>
+        <th align="center">Order Date</th>
+        <th align="center">Customer Name</th>
+        <th align="center">Customer Email</th>
+        <th align="center">Customer Address</th>
+        <th align="center">Customer Contact</th>
+
+        <th align="center">Order status</th>
+
+        <th align="center">Order Type</th>
+        <th align="center"> Action </th>
+
+    </tr>
+    @foreach (var o in Model)
+    {
+        <tr>
+        <tr>
+            <td align="center">@o.Order_ID</td>
+            <td align="center">@DateTime.Parse(o.Order_date.ToString()).ToLongDateString()</td>
+            <td align="center">@o.Order_Name</td>
+            <td align="center">@o.Order_Email</td>
+            <td align="center">@o.Order_Address</td>
+            <td align="center">@o.Order_Contact</td>
+            <td align="center">@o.Order_status</td>
+            <td align="center">@o.Order_type</td>
+            <th align="center"><a href="@Url.Action("Invoice","Report", new {id=o.Order_ID})" class="btn btn-theme">Veiw invoice</a></th>
+        </tr>
+        </tr>
+    }
+
+</table>
+

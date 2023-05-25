@@ -142,8 +142,13 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\adminsController.cs" />
     <Compile Include="Controllers\CategoriesController.cs" />
+    <Compile Include="Controllers\CatsController.cs" />
+    <Compile Include="Controllers\EmployeesController.cs" />
+    <Compile Include="Controllers\IngredientsController.cs" />
+    <Compile Include="Controllers\parchaseController .cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\productsController.cs" />
+    <Compile Include="Controllers\ReportController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -159,13 +164,20 @@
     <Compile Include="Migrations\202305122009119_order.designer.cs">
       <DependentUpon>202305122009119_order.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202305221620464_bfbbdkvo.cs" />
+    <Compile Include="Migrations\202305221620464_bfbbdkvo.designer.cs">
+      <DependentUpon>202305221620464_bfbbdkvo.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\Employee.cs" />
+    <Compile Include="Models\Cat.cs" />
     <Compile Include="Models\Category.cs" />
     <Compile Include="Models\admin.cs" />
     <Compile Include="Models\OrderDetail.cs" />
     <Compile Include="Models\order.cs" />
     <Compile Include="Models\Menu.cs" />
     <Compile Include="Models\Model.cs" />
+    <Compile Include="Models\ingredients.cs" />
     <Compile Include="Models\product.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -349,6 +361,8 @@
     <Content Include="Content\customer\img\about-4.jpg" />
     <Content Include="Content\customer\img\bg-hero.jpg" />
     <Content Include="Content\customer\img\hero.png" />
+    <Content Include="Content\customer\img\logo123.png" />
+    <Content Include="Content\customer\img\logo1234.png" />
     <Content Include="Content\customer\img\menu-1.jpg" />
     <Content Include="Content\customer\img\menu-2.jpg" />
     <Content Include="Content\customer\img\menu-3.jpg" />
@@ -366,6 +380,12 @@
     <Content Include="Content\customer\img\testimonial-3.jpg" />
     <Content Include="Content\customer\img\testimonial-4.jpg" />
     <Content Include="Content\customer\img\video.jpg" />
+    <Content Include="Content\customer\img\Yellow Abstract Cooking Fire Free Logo.png" />
+    <Content Include="Content\customer\img\Yellow_Abstract_Cooking_Fire_Free_Logo-removebg-preview %281%29.png" />
+    <Content Include="Content\customer\img\Yellow_Abstract_Cooking_Fire_Free_Logo-removebg-preview-removebg-preview.png" />
+    <Content Include="Content\customer\img\Yellow_Abstract_Cooking_Fire_Free_Logo-removebg-preview.png" />
+    <Content Include="Content\customer\img\Yellow_Abstract_Cooking_Fire_Free_Logo__2_-removebg-preview.png" />
+    <Content Include="Content\customer\img\Yellow_Abstract_Cooking_Fire_Free_Logo__3_-removebg-preview.png" />
     <Content Include="Content\customer\js\main.js" />
     <Content Include="Content\customer\lib\animate\animate.css" />
     <Content Include="Content\customer\lib\animate\animate.min.css" />
@@ -539,6 +559,34 @@
     <Content Include="Views\Home\cart.cshtml" />
     <Content Include="Views\Home\checkout.cshtml" />
     <Content Include="Views\Home\orderbooked.cshtml" />
+    <Content Include="Views\parchase\cart.cshtml" />
+    <Content Include="Views\parchase\orderbooked.cshtml" />
+    <Content Include="Views\parchase\parchase.cshtml" />
+    <Content Include="Views\parchase\checkout.cshtml" />
+    <Content Include="Views\Cats\Create.cshtml" />
+    <Content Include="Views\Cats\Delete.cshtml" />
+    <Content Include="Views\Cats\Details.cshtml" />
+    <Content Include="Views\Cats\Edit.cshtml" />
+    <Content Include="Views\Cats\Index.cshtml" />
+    <Content Include="Views\Ingredients\Create.cshtml" />
+    <Content Include="Views\Ingredients\Delete.cshtml" />
+    <Content Include="Views\Ingredients\Details.cshtml" />
+    <Content Include="Views\Ingredients\Edit.cshtml" />
+    <Content Include="Views\Ingredients\Index.cshtml" />
+    <Content Include="Views\Report\Parchasereport.cshtml" />
+    <Content Include="Views\Report\Invoice.cshtml" />
+    <Content Include="Views\Report\Salereport.cshtml" />
+    <Content Include="Views\Report\SaleInvoice.cshtml" />
+    <Content Include="Views\Report\waitersreport.cshtml" />
+    <Content Include="Views\Employees\Create.cshtml" />
+    <Content Include="Views\Employees\Delete.cshtml" />
+    <Content Include="Views\Employees\Details.cshtml" />
+    <Content Include="Views\Employees\Edit.cshtml" />
+    <Content Include="Views\Employees\Index.cshtml" />
+    <Content Include="Views\Report\Chefreport.cshtml" />
+    <Content Include="Views\Report\Deliverymanreport.cshtml" />
+    <Content Include="Views\Report\CSreport.cshtml" />
+    <Content Include="Views\Report\employeereport.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -566,6 +614,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202305122009119_order.resx">
       <DependentUpon>202305122009119_order.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202305221620464_bfbbdkvo.resx">
+      <DependentUpon>202305221620464_bfbbdkvo.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
