@@ -25,6 +25,9 @@ namespace fyp_hunger_nd_spice_.Models
         public string Products_description { get; set; }
 
         [Column(TypeName = "numeric")]
+        public decimal? cost { get; set; }
+
+        [Column(TypeName = "numeric")]
         public decimal? Products_price { get; set; }
 
         [StringLength(500)]

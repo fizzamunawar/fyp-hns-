@@ -7,6 +7,8 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using fyp_hunger_nd_spice_.Models;
+using CloudinaryDotNet;
+using CloudinaryDotNet.Actions;
 
 namespace fyp_hunger_nd_spice_.Controllers
 {
@@ -14,13 +16,13 @@ namespace fyp_hunger_nd_spice_.Controllers
     {
         private Model db = new Model();
 
-        // GET: Employees
+        // GET: Employees1
         public ActionResult Index()
         {
             return View(db.Employee.ToList());
         }
 
-        // GET: Employees/Details/5
+        // GET: Employees1/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -35,30 +37,40 @@ namespace fyp_hunger_nd_spice_.Controllers
             return View(employee);
         }
 
-        // GET: Employees/Create
+        // GET: Employees1/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Employees/Create
+        // POST: Employees1/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Employee_id,Employee_name,Employee_Role,Employee_Gender,Employee_email,Employee_contact,Employee_address")] Employee employee)
+        public ActionResult Create(Employee employee)
         {
-            if (ModelState.IsValid)
+            var cloudinary = new Cloudinary(new Account("dzvreuvgg", "243827289115876", "z69DbUjGXjwNHpCbS5G3kueEweo"));
+
+            // Upload
+            var uploadParams = new ImageUploadParams()
             {
-                db.Employee.Add(employee);
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
+                File = new FileDescription(employee.Emp_pic.FileName, employee.Emp_pic.InputStream)
 
-            return View(employee);
+            };
+
+            var uploadResult = cloudinary.Upload(uploadParams);
+            employee.Employee_pic = uploadResult.Url.ToString();
+            db.Employee.Add(employee);
+            db.SaveChanges();
+            return RedirectToAction("Index");
+
+
+            
+           
+           
         }
-
-        // GET: Employees/Edit/5
+        // GET: Employees1/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -73,23 +85,34 @@ namespace fyp_hunger_nd_spice_.Controllers
             return View(employee);
         }
 
-        // POST: Employees/Edit/5
+        // POST: Employees1/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Employee_id,Employee_name,Employee_Role,Employee_Gender,Employee_email,Employee_contact,Employee_address")] Employee employee)
+        public ActionResult Edit(Employee employee)
         {
-            if (ModelState.IsValid)
+            var cloudinary = new Cloudinary(new Account("dzvreuvgg", "243827289115876", "z69DbUjGXjwNHpCbS5G3kueEweo"));
+
+            // Upload
+            var uploadParams = new ImageUploadParams()
             {
-                db.Entry(employee).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
-            return View(employee);
+                File = new FileDescription(employee.Emp_pic.FileName, employee.Emp_pic.InputStream)
+
+            };
+
+            var uploadResult = cloudinary.Upload(uploadParams);
+            employee.Employee_pic = uploadResult.Url.ToString();
+            db.Employee.Add(employee);
+            db.SaveChanges();
+            return RedirectToAction("Index");
+
+
+
+          
         }
 
-        // GET: Employees/Delete/5
+        // GET: Employees1/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -104,7 +127,7 @@ namespace fyp_hunger_nd_spice_.Controllers
             return View(employee);
         }
 
-        // POST: Employees/Delete/5
+        // POST: Employees1/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)

@@ -11,14 +11,73 @@ namespace fyp_hunger_nd_spice_.Controllers
     {
         // GET: Report
         private Model db = new Model();
-        public ActionResult Parchasereport()
+        public ActionResult Parchasereport(Filtermodel fm)
         {
-            var o = db.Orders.Where(x=>x.Order_type=="Purchase").ToList();
+            if (fm.DateFrom == null)
+            {
+
+
+                ViewBag.DateFrom= System.DateTime.Today.ToString("s");
+                fm.DateFrom = System.DateTime.Today;
+
+            }
+            else
+            {
+                ViewBag.DateFrom = Convert.ToDateTime(fm.DateFrom).ToString("s");
+            }
+
+            if (fm.DateTo == null)
+            {
+
+
+                ViewBag.DateTo= System.DateTime.Now.ToString("s");
+                fm.DateTo = System.DateTime.Now;
+
+            }
+            else
+            {
+                ViewBag.DateTo = Convert.ToDateTime(fm.DateTo).ToString("s");
+
+            }
+
+
+            var o = db.Orders.Where(x => x.Order_type=="Purchase" & x.Order_date >= fm.DateFrom & x.Order_date <= fm.DateTo).ToList();
+           
             return View(o);
         } 
-        public ActionResult Salereport()
+        public ActionResult Salereport(Filtermodel fm)
         {
-            var o = db.Orders.Where(x=>x.Order_type=="Sale").ToList();
+
+            if (fm.DateFrom == null)
+            {
+
+
+                ViewBag.DateFrom= System.DateTime.Today.ToString("s");
+                fm.DateFrom = System.DateTime.Today;
+
+            }
+            else
+            {
+                ViewBag.DateFrom = Convert.ToDateTime(fm.DateFrom).ToString("s");
+            }
+
+            if (fm.DateTo == null)
+            {
+
+
+                ViewBag.DateTo= System.DateTime.Now.ToString("s");
+                fm.DateTo = System.DateTime.Now;
+
+            }
+            else
+            {
+                ViewBag.DateTo = Convert.ToDateTime(fm.DateTo).ToString("s");
+
+            }
+
+
+            
+            var o = db.Orders.Where(x => x.Order_type=="Sale" & x.Order_date >= fm.DateFrom & x.Order_date <= fm.DateTo).ToList();
             return View(o);
         }
         public ActionResult Invoice(int id)
@@ -33,28 +92,8 @@ namespace fyp_hunger_nd_spice_.Controllers
 
             return View(o);
         } 
-        public ActionResult waitersreport()
-        {
-
-            var p = db.Employee.Where(x => x.Employee_Role=="Waiter").ToList();
-            return View(p);
-        } 
-        public ActionResult Chefreport()
-        {
-
-            var p = db.Employee.Where(x => x.Employee_Role=="Chef").ToList();
-            return View(p);
-        } public ActionResult CSreport()
-        {
-
-            var p = db.Employee.Where(x => x.Employee_Role=="Cleaning staff").ToList();
-            return View(p);
-        } public ActionResult Deliverymanreport()
-        {
-
-            var p = db.Employee.Where(x => x.Employee_Role=="Deliveryman").ToList();
-            return View(p);
-        }public ActionResult employeereport()
+        
+      public ActionResult employeereport()
         {
 
             var p = db.Employee.ToList();

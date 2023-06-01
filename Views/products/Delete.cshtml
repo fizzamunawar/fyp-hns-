@@ -19,7 +19,6 @@
             @Html.DisplayFor(model => model.Category.Cusinie_name)
         </dd>
 
-
         <dt>
             @Html.DisplayNameFor(model => model.Products_name)
         </dt>
@@ -37,6 +36,14 @@
         </dd>
 
         <dt>
+            @Html.DisplayNameFor(model => model.cost)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cost)
+        </dd>
+
+        <dt>
             @Html.DisplayNameFor(model => model.Products_price)
         </dt>
 
@@ -49,7 +56,7 @@
         </dt>
 
         <dd>
-            <img height="100px" width="100px" src="@Url.Content(Model.Products_pic)" />
+            @Html.DisplayFor(model => model.Products_pic)
         </dd>
 
     </dl>
@@ -57,10 +64,9 @@
     @using (Html.BeginForm()) {
         @Html.AntiForgeryToken()
 
-<div class="form-actions no-color">
-    <input type="submit" value="Delete" class="btn btn-default" /> |
-    
-    @Html.ActionLink("Back to List", "Index")
-</div>
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
     }
 </div>

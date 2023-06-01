@@ -29,22 +29,26 @@
                         <div class="billing-address">
                             <h2>Billing Address</h2>
                             <div class="row">
-                                <div class="col-md-6" aciton="/myaction.php" name="myForm" onsubmit="return validateForm()" method="post">
+                                <div class="col-md-6">
                                     <label>Name</label>
-                                    <input class="form-control" name="Order_Name" type="text" placeholder="Name" required><b><span class="formerror"></span></b>
+                                    <input class="form-control" name="Order_Name" id="nameInput" type="text" placeholder="Name" required>
+                                    <b><span id="nameError" class="formerror" style="color:red"></span></b>
                                 </div>
 
                                 <div class="col-md-6">
                                     <label>E-mail</label>
-                                    <input class="form-control" name="Order_Email" type="text" placeholder="E-mail" required><b><span class="formerror"></span></b>
+                                    <input class="form-control" name="Order_Email" id="emailInput" type="email" placeholder="E-mail" required>
+                                    <b><span id="emailError" class="formerror"></span></b>
                                 </div>
                                 <div class="col-md-6">
                                     <label>Mobile No</label>
-                                    <input class="form-control" name="Order_Contact" type="text" placeholder="Mobile No" required><b><span class="formerror"></span></b>
+                                    <input class="form-control" name="Order_Contact" id="contactInput" type="text" placeholder="Mobile No" required>
+                                    <b><span id="contactError" class="formerror" style="color:red"></span></b>
                                 </div>
                                 <div class="col-md-12">
                                     <label>Address</label>
-                                    <input class="form-control" type="text" name="Order_Address" placeholder="Address" required><b><span class="formerror"></span></b>
+                                    <input class="form-control" name="Order_Address" id="addressInput" type="text" placeholder="Address" required>
+                                    <b><span id="addressError" class="formerror"></span></b>
                                 </div>
                             </div>
                         </div>
@@ -55,15 +59,15 @@
                         <div class="checkout-summary">
                             <h1>Cart Total</h1>
 
-                            <p class="sub-total">Sub Total<span>@Session["totalbill"]</span></p>
-                            <p class="ship-cost">Shipping Cost<span>0</span></p>
-                            <h2>Grand Total<span>@Session["totalbill"]</span></h2>
+                            <p class="sub-total">Sub Total<span>Rs.@Session["Totalamnt"]</span></p>
+                            <p class="ship-cost">Shipping Cost<span>Rs.100</span></p>
+                            <h2>Grand Total<span>Rs.@Session["Totalamount"]</span></h2>
                         </div>
 
                         <div class="checkout-payment">
 
                             <div class="checkout-btn">
-                                <button> <a  style="color:white;">Placeorder</a></button>
+                                <button type="submit" onclick="return validateForm()">Placeorder</button>
                             </div>
                         </div>
                     </div>
@@ -75,55 +79,70 @@
 
 <script type="text/javascript">
     window.onload = function () { window.scrollBy(0, 400) }
-  /*  function clearErrors() {
-
-        errors = document.getElementsByClassName('formerror');
-        for (let item of errors) {
-            item.innerHTML = "";
-        }
-
-
-    }
-    function seterror(id, error) {
-        //sets error inside tag of id 
-        element = document.getElementById(id);
-        element.getElementsByClassName('formerror')[0].innerHTML = error;
-
-    }
 
     function validateForm() {
-        var returnval = true;
-        clearErrors();
+        var nameInput = document.getElementById("nameInput").value;
+        var emailInput = document.getElementById("emailInput").value;
+        var contactInput = document.getElementById("contactInput").value;
+        var addressInput = document.getElementById("addressInput").value;
 
-        //perform validation and if validation fails, set the value of returnval to false
-        var name = document.forms['myForm']["fname"].value;
-        if (name.length < 5) {
-            seterror("name", "*Length of name is too short");
-            returnval = false;
+        var nameError = document.getElementById("nameError");
+        var emailError = document.getElementById("emailError");
+        var contactError = document.getElementById("contactError");
+        var addressError = document.getElementById("addressError");
+
+        nameError.textContent = "";
+        emailError.textContent = "";
+        contactError.textContent = "";
+        addressError.textContent = "";
+
+        if (nameInput.trim() === "") {
+            nameError.textContent = "Name is required.";
+            return false;
         }
 
-        if (name.length == 0) {
-            seterror("name", "*Length of name cannot be zero!");
-            returnval = false;
+        // Validate name (disallow digits)
+        if (/\d/.test(nameInput)) {
+            nameError.textContent = "Name should not contain digits.";
+            return false;
         }
 
-        var email = document.forms['myForm']["femail"].value;
-        if (email.length > 15) {
-            seterror("email", "*Email length is too long");
-            returnval = false;
+        if (emailInput.trim() === "") {
+            emailError.textContent = "Email is required.";
+            return false;
         }
 
-        var phone = document.forms['myForm']["fphone"].value;
-        if (phone.length != 11) {
-            seterror("phone", "*Phone number should be of 11 digits!");
-            returnval = false;
+
+
+        if (contactInput.trim() === "") {
+            contactError.textContent = "Mobile number is required.";
+            return false;
         }
 
-       
+        // Validate mobile number format using regular expression
+        var contactPattern = /^\d{11}$/;
+        if (!contactPattern.test(contactInput)) {
+            contactError.textContent = "Invalid mobile number format.";
+            return false;
+        }
 
-        return returnval;
+        if (addressInput.trim() === "") {
+            addressError.textContent = "Address is required.";
+            return false;
+        }
+
+        return true; // Form is valid
     }
-    */
+
+    // Example usage: form submission
+    var form = document.getElementById("yourFormId");
+    form.addEventListener("submit", function (event) {
+        if (!validateForm()) {
+            event.preventDefault(); // Prevent form submission if validation fails
+        }
+    });
+    ;
+
 
   
 </script>

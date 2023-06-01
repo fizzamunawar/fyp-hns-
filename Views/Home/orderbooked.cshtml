@@ -6,6 +6,7 @@
     int total_qua = 0;
     decimal totalbill = 0;
     Layout= "~/Views/Shared/_layoutcustomer.cshtml";
+    int shipingcost = 100;
 }
 
 
@@ -130,10 +131,10 @@
                                                 <p><span>Rs.@totalbill</span>Sub Total</p>
                                                 <p><span>Rs.0</span>Discount</p>
                                                 <p><span>Rs.0</span>Tax</p>
-                                                <p><span>Free</span>Shipping Cost</p>
-                                                <h2><span>@totalbill</span>Grand Total</h2>
+                                                <p><span>Rs.@shipingcost</span>Shipping Cost</p>
+                                                <h2><span>@Session["Totalamount"]</span>Grand Total</h2>
                                             </div>
-
+                                           
                                         </div>
                                     </div>
                                 </div>

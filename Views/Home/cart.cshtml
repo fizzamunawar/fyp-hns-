@@ -4,6 +4,7 @@
 @{
     int row = 0;
     int total_qua = 0;
+    int shipingcost = 100;
     decimal totalbill = 0;
     Layout= "~/Views/Shared/_layoutcustomer.cshtml";
 }
@@ -96,7 +97,9 @@
 
                                                 }
 
-                                                /*Session["Totalamount"]=totalbill; */
+                                                Session["Totalamount"]=totalbill + shipingcost;
+                                                Session["Totalamnt"]=totalbill;
+
 
                                             }
                                             @if (Session["mycart"]== null || row==0)
@@ -130,8 +133,8 @@
                                                 <p><span>Rs.@totalbill</span>Sub Total</p>
                                                 <p><span>Rs.0</span>Discount</p>
                                                 <p><span>Rs.0</span>Tax</p>
-                                                <p><span>Free</span>Shipping Cost</p>
-                                                <h2><span>@totalbill</span>Grand Total</h2>
+                                                <p><span>Rs.@shipingcost</span>Shipping Cost</p>
+                                                <h2><span>@Session["Totalamount"]</span>Grand Total</h2>
                                             </div>
                                             <div class="cart-btn">
                                                 <button> <a href="@Url.Action("Menu","Home")" style="color:black;" ><b>Update cart</b></a></button>

@@ -3,9 +3,26 @@
 
 @{
     Layout= "~/Views/Shared/_layoutadmin.cshtml";
-   
+
 }
 <h2>Sale report</h2>
+@using (Html.BeginForm("Salereport", "Report", FormMethod.Post))
+{
+
+    <table class="table table-bordered table-hover ">
+        <tr>
+            <th>Date From:</th>
+            <td><input type="datetime-local" name="Datefrom" value="@ViewBag.DateFrom" class="form-control" /></td>
+            <th>Date To:</th>
+            <td><input type="datetime-local" name="DateTo" value="@ViewBag.DateTo" class="form-control" /></td>
+            <td><input type="submit" value="Generate Reports" class="btn btn-danger btn-block" /></td>
+
+        </tr>
+        <tr>
+           
+        </tr>
+    </table>
+}
 
 <table class="table table-bordered table-hover ">
     <tr style="background-color: #4ECDC4">
@@ -20,7 +37,7 @@
 
         <th align="center">Order Type</th>
         <th align="center"> Action </th>
-        
+
     </tr>
     @foreach (var o in Model)
     {
@@ -34,7 +51,7 @@
             <td align="center">@o.Order_Contact</td>
             <td align="center">@o.Order_status</td>
             <td align="center">@o.Order_type</td>
-            <th align="center"><a  href="@Url.Action("SaleInvoice","Report", new {id=o.Order_ID})" class="btn btn-theme">Veiw invoice</a></th>
+            <th align="center"><a href="@Url.Action("SaleInvoice","Report", new {id=o.Order_ID})" class="btn btn-theme">Veiw invoice</a></th>
         </tr>
         </tr>
     }

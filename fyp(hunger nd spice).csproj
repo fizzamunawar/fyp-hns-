@@ -168,7 +168,16 @@
     <Compile Include="Migrations\202305221620464_bfbbdkvo.designer.cs">
       <DependentUpon>202305221620464_bfbbdkvo.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202305311128216_ctyi.cs" />
+    <Compile Include="Migrations\202305311128216_ctyi.designer.cs">
+      <DependentUpon>202305311128216_ctyi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202305311905460_jsef.cs" />
+    <Compile Include="Migrations\202305311905460_jsef.designer.cs">
+      <DependentUpon>202305311905460_jsef.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\Filtermodel.cs" />
     <Compile Include="Models\Employee.cs" />
     <Compile Include="Models\Cat.cs" />
     <Compile Include="Models\Category.cs" />
@@ -549,11 +558,6 @@
     <Content Include="Views\Categories\Details.cshtml" />
     <Content Include="Views\Categories\Edit.cshtml" />
     <Content Include="Views\Categories\Index.cshtml" />
-    <Content Include="Views\products\Create.cshtml" />
-    <Content Include="Views\products\Delete.cshtml" />
-    <Content Include="Views\products\Details.cshtml" />
-    <Content Include="Views\products\Edit.cshtml" />
-    <Content Include="Views\products\Index.cshtml" />
     <Content Include="Views\Home\login.cshtml" />
     <Content Include="Views\Home\Menu.cshtml" />
     <Content Include="Views\Home\cart.cshtml" />
@@ -577,16 +581,17 @@
     <Content Include="Views\Report\Invoice.cshtml" />
     <Content Include="Views\Report\Salereport.cshtml" />
     <Content Include="Views\Report\SaleInvoice.cshtml" />
-    <Content Include="Views\Report\waitersreport.cshtml" />
+    <Content Include="Views\Report\employeereport.cshtml" />
     <Content Include="Views\Employees\Create.cshtml" />
     <Content Include="Views\Employees\Delete.cshtml" />
     <Content Include="Views\Employees\Details.cshtml" />
     <Content Include="Views\Employees\Edit.cshtml" />
     <Content Include="Views\Employees\Index.cshtml" />
-    <Content Include="Views\Report\Chefreport.cshtml" />
-    <Content Include="Views\Report\Deliverymanreport.cshtml" />
-    <Content Include="Views\Report\CSreport.cshtml" />
-    <Content Include="Views\Report\employeereport.cshtml" />
+    <Content Include="Views\products\Create.cshtml" />
+    <Content Include="Views\products\Delete.cshtml" />
+    <Content Include="Views\products\Details.cshtml" />
+    <Content Include="Views\products\Edit.cshtml" />
+    <Content Include="Views\products\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -617,6 +622,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202305221620464_bfbbdkvo.resx">
       <DependentUpon>202305221620464_bfbbdkvo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202305311128216_ctyi.resx">
+      <DependentUpon>202305311128216_ctyi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202305311905460_jsef.resx">
+      <DependentUpon>202305311905460_jsef.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

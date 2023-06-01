@@ -1,6 +1,7 @@
 ﻿namespace fyp_hunger_nd_spice_.Models
 {
     using System;
+    using System.Web;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel.DataAnnotations.Schema;
@@ -19,6 +20,10 @@
         [Required]
         [StringLength(100)]
         public string Employee_Role { get; set; }
+        public string Employee_pic { get; set; }
+    
+        [NotMapped]
+        public HttpPostedFileBase Emp_pic { get; set; }
         [Required]
         [StringLength(100)]
         public string Employee_Gender { get; set; } 

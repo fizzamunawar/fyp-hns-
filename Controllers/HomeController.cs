@@ -16,9 +16,28 @@ namespace fyp_hunger_nd_spice_.Controllers
     public class HomeController : Controller
     {
         private Model db = new Model();
-        public ActionResult Indexcustomer()
+        public ActionResult Indexcustomer(int? id)
         {
-            return View();
+            Menu m = new Menu();
+            /* menu is a model have to  list cat or pro */
+            m.cat= db.Categories.ToList();
+            var orders = db.Orderdetails.GroupBy(od => od.Product_fid)
+                             .Where(g => g.Count() >= 5)
+                             .Select(g => g.Key)
+                             .ToList();
+
+            if (id == null)
+            {
+                m.pro = db.products.Where(p =>orders.Contains(p.Products_id)).ToList();
+            }
+            else
+            {
+                m.pro = db.products.Where(p => p.category_fid == id && orders.Contains(p.Products_id))
+                                   .ToList();
+            }
+
+            return View(m);
+          
         }
         public ActionResult Indexadmin()
         {
@@ -131,12 +150,13 @@ namespace fyp_hunger_nd_spice_.Controllers
         {
             o.Order_date=System.DateTime.Now;
             o.Order_type="Sale";
-            o.Order_status="COD";
-        
-        
+            o.Order_status="Paid";
 
+
+
+           
             Session["order"]=o;
-            return RedirectToAction("orderbooked");
+            return Redirect("https://www.sandbox.paypal.com/cgi-bin/webscr?cmd=_xclick&business=huda.basharat41@gmail.com&item_name= hungernspiceitems&return=https://localhost:44331/Home/orderbooked&amount=" + double.Parse(Session["Totalamount"].ToString()) / 286);
         }
 
         public ActionResult orderbooked()

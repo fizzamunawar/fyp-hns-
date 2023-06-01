@@ -8,7 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using fyp_hunger_nd_spice_.Models;
 using CloudinaryDotNet;
-using CloudinaryDotNet.Actions; 
+using CloudinaryDotNet.Actions;
 
 namespace fyp_hunger_nd_spice_.Controllers
 {
@@ -57,16 +57,16 @@ namespace fyp_hunger_nd_spice_.Controllers
             // Upload
             var uploadParams = new ImageUploadParams()
             {
-                File = new FileDescription(product.Pro.FileName,product.Pro.InputStream)
-              
+                File = new FileDescription(product.Pro.FileName, product.Pro.InputStream)
+
             };
 
             var uploadResult = cloudinary.Upload(uploadParams);
             product.Products_pic = uploadResult.Url.ToString();
             db.products.Add(product);
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            
+            db.SaveChanges();
+            return RedirectToAction("Index");
+
 
             ViewBag.category_fid = new SelectList(db.Categories, "Cat_ID", "Cusinie_name", product.category_fid);
             ViewBag.Products_id = new SelectList(db.products, "Products_id", "Products_name", product.Products_id);
@@ -76,7 +76,7 @@ namespace fyp_hunger_nd_spice_.Controllers
         // GET: products/Edit/5
         public ActionResult Edit(int? id)
         {
-            
+
             product product = db.products.Find(id);
             ViewBag.category_fid = new SelectList(db.Categories, "Cat_ID", "Cusinie_name", product.category_fid);
             ViewBag.Products_id = new SelectList(db.products, "Products_id", "Products_name", product.Products_id);
@@ -109,7 +109,7 @@ namespace fyp_hunger_nd_spice_.Controllers
             ViewBag.category_fid = new SelectList(db.Categories, "Cat_ID", "Cusinie_name", product.category_fid);
             ViewBag.Products_id = new SelectList(db.products, "Products_id", "Products_name", product.Products_id);
             return View(product);
-        
+
         }
         // GET: products/Delete/5
         public ActionResult Delete(int? id)

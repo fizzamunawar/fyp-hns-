@@ -257,7 +257,8 @@
                             <i class="fa fa-desktop"></i>
                             <span>Manage Admin Account</span>
                         </a>
-                    </li><li>
+                    </li>
+                    <li>
                         <a href="@Url.Action("Index", "Employees")">
                             <i class="fa fa-desktop"></i>
                             <span>Manage Employees</span>
@@ -277,8 +278,8 @@
 
                                 </a>
                             </li>
-                            </ul>
-                            <ul class="sub">
+                        </ul>
+                        <ul class="sub">
                             <li>
                                 <a href="@Url.Action("index" ,"Cats")">
                                     <i class="fa fa-envelope"></i>
@@ -286,10 +287,10 @@
 
                                 </a>
                             </li>
-                            
+
                         </ul>
                     </li>
-                  
+
                     <li class="sub-menu">
                         <a href="@Url.Action("Index","Products")">
                             <i class=" fa fa-bar-chart-o"></i>
@@ -317,42 +318,16 @@
                             <span>Reports</span>
                         </a>
                         <ul class="sub">
-                          
+
 
                             <li>
-                                <a href="transaction_report.html">Employees Report</a>
-                                <ul>
-                                    <li>
-                                        <a href="@Url.Action("employeereport" ,"Report")" ;">
+                                <a href="@Url.Action("employeereport" ,"Report")"</a>
 
-                                            <span>All employees Report</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="@Url.Action("waitersreport" ,"Report")" ;">
+                                <span>Employees Report</span>
+                                </a>
 
-                                            <span>Waiters Report</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="@Url.Action("Chefreport" ,"Report")" ;">
 
-                                            <span>Chef Report</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="@Url.Action("Deliverymanreport" ,"Report")" ;">
 
-                                            <span>Delivery Report</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a href="@Url.Action("CSreport" ,"Report")" ;">
-
-                                            <span>Cleaning Staff Report</span>
-                                        </a>
-                                    </li>
-                                </ul>
 
                             </li>
                             <li><a href="P&L_report.html">Profir & Loss Report</a></li>
@@ -361,9 +336,10 @@
                                 <ul>
                                     <li>
                                         <a href="@Url.Action("Parchasereport" ,"Report")" ;">
-                                            
+
                                             <span>Parchase Report</span>
-                                        </a></li>
+                                        </a>
+                                    </li>
                                     <li>
                                         <a href="@Url.Action("Salereport" ,"Report")" ;">
 
@@ -371,12 +347,21 @@
                                         </a>
                                     </li>
                                 </ul>
-                                </ul>
+
+
+                        </ul>
+                    <li class="sub-menu">
+
+                        <a href="@Url.Action("parchase","parchase")">
+                            <i class=" fa fa-calculator"></i>
+                            <span>Manage Purchase</span>
+                        </a>
                     </li>
-                    
-                
-                <!-- sidebar menu end-->
-            </div>
+                    </li>
+
+
+                    <!-- sidebar menu end-->
+</div>
         </aside>
         <!--sidebar end-->
         <!-- ****************************************************-->
