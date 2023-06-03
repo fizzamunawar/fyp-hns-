@@ -1,5 +1,5 @@
 ﻿
-
+@using fyp_hunger_nd_spice_.Models
 
 
 @{
@@ -24,36 +24,74 @@
     <div class="checkout">
         <div class="container-fluid">
             <div class="row">
-                <div class="col-lg-8">
-                    <div class="checkout-inner">
-                        <div class="billing-address">
-                            <h2>Billing Address</h2>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <label>Name</label>
-                                    <input class="form-control" name="Order_Name" id="nameInput" type="text" placeholder="Name" required>
-                                    <b><span id="nameError" class="formerror" style="color:red"></span></b>
-                                </div>
 
-                                <div class="col-md-6">
-                                    <label>E-mail</label>
-                                    <input class="form-control" name="Order_Email" id="emailInput" type="email" placeholder="E-mail" required>
-                                    <b><span id="emailError" class="formerror"></span></b>
-                                </div>
-                                <div class="col-md-6">
-                                    <label>Mobile No</label>
-                                    <input class="form-control" name="Order_Contact" id="contactInput" type="text" placeholder="Mobile No" required>
-                                    <b><span id="contactError" class="formerror" style="color:red"></span></b>
-                                </div>
-                                <div class="col-md-12">
-                                    <label>Address</label>
-                                    <input class="form-control" name="Order_Address" id="addressInput" type="text" placeholder="Address" required>
-                                    <b><span id="addressError" class="formerror"></span></b>
+                @if (Session["customer"] != null)
+                {
+                    customer c = (customer)Session["customer"];
+
+                    <div class="col-lg-8">
+                        <div class="checkout-inner">
+                            <div class="billing-address">
+                                <h2>Billing Address</h2>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>Name</label>
+                                        <input class="form-control" name="Order_Name" value="@c.Customer_name" id="nameInput" type="text" placeholder="Name" required>
+                                        <b><span id="nameError" class="formerror" style="color:red"></span></b>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <label>E-mail</label>
+                                        <input class="form-control" name="Order_Email" value="@c.Customer_email" id="emailInput" type="email" placeholder="E-mail" required>
+                                        <b><span id="emailError" class="formerror"></span></b>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label>Mobile No</label>
+                                        <input class="form-control" name="Order_Contact" value="@c.Customer_contact" id="contactInput" type="text" placeholder="Mobile No" required>
+                                        <b><span id="contactError" class="formerror" style="color:red"></span></b>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <label>Address</label>
+                                        <input class="form-control" name="Order_Address" value="@c.Customer_address" id="addressInput" type="text" placeholder="Address" required>
+                                        <b><span id="addressError" class="formerror"></span></b>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </div>
+                    </div>}
+                else
+                {
+                    <div class="col-lg-8">
+                        <div class="checkout-inner">
+                            <div class="billing-address">
+                                <h2>Billing Address</h2>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <label>Name</label>
+                                        <input class="form-control" name="Order_Name" id="nameInput" type="text" placeholder="Name" required>
+                                        <b><span id="nameError" class="formerror" style="color:red"></span></b>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                        <label>E-mail</label>
+                                        <input class="form-control" name="Order_Email"  id="emailInput" type="email" placeholder="E-mail" required>
+                                        <b><span id="emailError" class="formerror"></span></b>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <label>Mobile No</label>
+                                        <input class="form-control" name="Order_Contact"  id="contactInput" type="text" placeholder="Mobile No" required>
+                                        <b><span id="contactError" class="formerror" style="color:red"></span></b>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <label>Address</label>
+                                        <input class="form-control" name="Order_Address" id="addressInput" type="text" placeholder="Address" required>
+                                        <b><span id="addressError" class="formerror"></span></b>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>}
+                
                 <div class="col-lg-4">
                     <div class="checkout-inner">
                         <div class="checkout-summary">
@@ -61,6 +99,12 @@
 
                             <p class="sub-total">Sub Total<span>Rs.@Session["Totalamnt"]</span></p>
                             <p class="ship-cost">Shipping Cost<span>Rs.100</span></p>
+                            <p class="ship-cost">
+                                Payment mode<span>
+                                    <input type="radio" name="Order_status" value="COD" checked="checked" />COD
+                                    <input type="radio" name="Order_status" value="Paid" />
+                                </span>
+                            </p>PAYPAL
                             <h2>Grand Total<span>Rs.@Session["Totalamount"]</span></h2>
                         </div>
 

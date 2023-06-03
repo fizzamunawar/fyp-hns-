@@ -86,7 +86,7 @@
                                     /*Session["Totalamount"]=totalbill; */
 
                                 }
-                              
+
 
 
                             </tbody>
@@ -156,7 +156,7 @@
                                             <div class="ml-auto font-weight-bold">paid</div>
                                         </div>
                                         <hr>
-                                       
+
                                     </div>
                                 </div>}
 
@@ -168,4 +168,17 @@
         </div>
     </div>
 </div>
+<input class="btn btn-danger" type="submit" value="Print Now" onclick="return PrintFunction()" />
+<a class="btn btn-danger" href="@Url.Action("closeorder","parchase")">Close Order?</a>
+       
+
+<br />
+
+<script type="text/javascript">
+
+            function PrintFunction() {
+                window.print();
+            }
+</script>
+
 <!-- Cart End -->

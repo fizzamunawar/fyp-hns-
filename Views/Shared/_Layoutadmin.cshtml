@@ -1,4 +1,19 @@
-﻿<!DOCTYPE html>
+﻿
+@using fyp_hunger_nd_spice_.Models
+
+@{       
+    Model db = new Model();
+    admin a = db.admins.FirstOrDefault();
+
+    if (Session["admin"]==null){
+        Response.Redirect("/home/login");
+    }
+    else 
+    {
+        a = (admin)Session["admin"];
+    }
+}
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -231,7 +246,7 @@
             </div>
             <div class="top-menu">
                 <ul class="nav pull-right top-menu">
-                    <li><a class="logout" href="login.html">Logout</a></li>
+                    <li><a class="logout" href="@Url.Action("logout","home")">Logout</a></li>
                 </ul>
             </div>
         </header>
@@ -245,7 +260,9 @@
                 <!-- sidebar menu start-->
                 <ul class="sidebar-menu" id="nav-accordion">
                     <p class="centered"><a href="profile.html"><img src="~/Content/Admin/img/ui-sam.jpg" class="img-circle" width="80"></a></p>
-                    <h5 class="centered">Fizza Munawar<h5>
+                    <h5 class="centered">@a.Admin_name<h5>
+                    
+                        <h6 class="centered">@a.Admin_email</h6>
                     <li class="mt">
                         <a class="active" href="@Url.Action("IndexAdmin" ,"home")">
                             <i class="fa fa-dashboard"></i>
@@ -260,20 +277,20 @@
                     </li>
                     <li>
                         <a href="@Url.Action("Index", "Employees")">
-                            <i class="fa fa-desktop"></i>
+                            <i class="fa fa-user-circle"></i>
                             <span>Manage Employees</span>
                         </a>
                     </li>
 
                     <li class="sub-menu">
                         <a href="javascript:;">
-                            <i class="fa fa-list"></i>
+                            <i class="fa fa-tasks"></i>
                             <span> Manage Categories</span>
                         </a>
                         <ul class="sub">
                             <li>
                                 <a href="@Url.Action("index" ,"Categories")">
-                                    <i class="fa fa-envelope"></i>
+                                  
                                     <span>Manage Cusinie </span>
 
                                 </a>
@@ -282,7 +299,7 @@
                         <ul class="sub">
                             <li>
                                 <a href="@Url.Action("index" ,"Cats")">
-                                    <i class="fa fa-envelope"></i>
+                                  
                                     <span>Manage category </span>
 
                                 </a>
@@ -293,14 +310,14 @@
 
                     <li class="sub-menu">
                         <a href="@Url.Action("Index","Products")">
-                            <i class=" fa fa-bar-chart-o"></i>
+                            <i class=" fa fa-laptop"></i>
                             <span>Manage products</span>
                         </a>
 
                     </li>
                     <li class="sub-menu">
                         <a href="@Url.Action("Index","Ingredients")">
-                            <i class=" fa fa-calculator"></i>
+                            <i class=" fa fa-envelope"></i>
                             <span>Manage Ingredients</span>
                         </a>
 

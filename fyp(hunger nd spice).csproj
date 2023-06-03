@@ -143,6 +143,7 @@
     <Compile Include="Controllers\adminsController.cs" />
     <Compile Include="Controllers\CategoriesController.cs" />
     <Compile Include="Controllers\CatsController.cs" />
+    <Compile Include="Controllers\customersController.cs" />
     <Compile Include="Controllers\EmployeesController.cs" />
     <Compile Include="Controllers\IngredientsController.cs" />
     <Compile Include="Controllers\parchaseController .cs" />
@@ -176,7 +177,21 @@
     <Compile Include="Migrations\202305311905460_jsef.designer.cs">
       <DependentUpon>202305311905460_jsef.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202306022100261_fiza.cs" />
+    <Compile Include="Migrations\202306022100261_fiza.designer.cs">
+      <DependentUpon>202306022100261_fiza.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202306022109592_fizzs.cs" />
+    <Compile Include="Migrations\202306022109592_fizzs.designer.cs">
+      <DependentUpon>202306022109592_fizzs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202306022121329_fizza.cs" />
+    <Compile Include="Migrations\202306022121329_fizza.designer.cs">
+      <DependentUpon>202306022121329_fizza.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\Feedback.cs" />
+    <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\Filtermodel.cs" />
     <Compile Include="Models\Employee.cs" />
     <Compile Include="Models\Cat.cs" />
@@ -592,6 +607,12 @@
     <Content Include="Views\products\Details.cshtml" />
     <Content Include="Views\products\Edit.cshtml" />
     <Content Include="Views\products\Index.cshtml" />
+    <Content Include="Views\customers\Create.cshtml" />
+    <Content Include="Views\customers\Delete.cshtml" />
+    <Content Include="Views\customers\Details.cshtml" />
+    <Content Include="Views\customers\Edit.cshtml" />
+    <Content Include="Views\customers\Index.cshtml" />
+    <Content Include="Views\customers\login.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -628,6 +649,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202305311905460_jsef.resx">
       <DependentUpon>202305311905460_jsef.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202306022100261_fiza.resx">
+      <DependentUpon>202306022100261_fiza.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202306022109592_fizzs.resx">
+      <DependentUpon>202306022109592_fizzs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202306022121329_fizza.resx">
+      <DependentUpon>202306022121329_fizza.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

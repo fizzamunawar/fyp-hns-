@@ -43,8 +43,11 @@
         [Required]
         [StringLength(100)]
         public string Order_Address { get; set; }
+        public int? Customer_fid { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+
+        public virtual customer Customer { get; set; }
         public virtual ICollection<Orderdetail> Orderdetails { get; set; }
     }
 }

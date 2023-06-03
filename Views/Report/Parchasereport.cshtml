@@ -2,6 +2,7 @@
 @model IEnumerable<fyp_hunger_nd_spice_.Models.Order>
 
 @{
+    int no = 0;
     Layout= "~/Views/Shared/_layoutadmin.cshtml";
 
 }
@@ -25,6 +26,8 @@
 
     <table class="table table-bordered table-hover ">
         <tr style="background-color: #4ECDC4">
+
+            <th align="center">Sr #</th>
             <th align="center">Order ID</th>
             <th align="center">Order Date</th>
             <th align="center">Customer Name</th>
@@ -40,9 +43,10 @@
         </tr>
         @foreach (var o in Model)
         {
+            no++;
             <tr>
-            <tr>
-                <td align="center">@o.Order_ID</td>
+                <td align="center">@no</td>
+                <td align="center">Order-@o.Order_ID</td>
                 <td align="center">@DateTime.Parse(o.Order_date.ToString()).ToLongDateString()</td>
                 <td align="center">@o.Order_Name</td>
                 <td align="center">@o.Order_Email</td>
@@ -52,7 +56,7 @@
                 <td align="center">@o.Order_type</td>
                 <th align="center"><a href="@Url.Action("Invoice","Report", new {id=o.Order_ID})" class="btn btn-theme">Veiw invoice</a></th>
             </tr>
-            </tr>
+          
         }
 
     </table>

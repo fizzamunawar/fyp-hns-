@@ -48,8 +48,21 @@ namespace fyp_hunger_nd_spice_.Controllers
             {
                 list=(List<Ingredient>)Session["mycart"]; }
 
+            Boolean isexist = false;
+            foreach (var item in list)
+            {
+                if (id==item.ingredient_id)
+                {
+                    isexist =true;
+                    item.pro_quant++;
+                }
+            }
+            if (isexist==false)
+            {
+
                 list.Add(db.Ingredients.Where(p => p.ingredient_id==id).FirstOrDefault());
-            list[list.Count-1].pro_quant=1;
+                list[list.Count-1].pro_quant=1;
+            }
             Session["mycart"]= list;
             return RedirectToAction("cart");
         }
@@ -161,7 +174,12 @@ namespace fyp_hunger_nd_spice_.Controllers
         }
 
 
-
+        public ActionResult closeorder()
+        {
+            Session["Order"]= null;
+            Session["mycart"]= null;
+            return RedirectToAction("indexcustomer");
+        }
 
 
 

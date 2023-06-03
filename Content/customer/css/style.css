@@ -664,7 +664,7 @@ nav.navbar-dark .navbar-nav .nav-link {
 
             .cart-page .cart-summary .cart-content p span,
             .cart-page .cart-summary .cart-content h2 span {
-                float: right;
+                float:right;
                
             }
 
@@ -1073,4 +1073,11 @@ hr {
 
         .product-item .product-price .btn i {
             margin-right: 5px;
+        }
+        .od{
+            margin-top:8px;
+            margin-left:2px;
+        }
+        .orderbox{
+            margin:5px;
         }

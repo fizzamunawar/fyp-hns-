@@ -1,4 +1,5 @@
-﻿
+﻿@using fyp_hunger_nd_spice_.Models
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -66,11 +67,44 @@
 
                         <a href="@Url.Action("Menu","Home")" class="nav-item nav-link">Menu</a>
 
+                        <div class="nav-item dropdown">
+                            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">My Profile</a>
+                            <div class="dropdown-menu m-0">
+
+                                @if (Session["customer"] != null)
+                                {
+                                    <a href="@Url.Action("Index", "Customers")" class="dropdown-item">Manage Account</a>
+
+                                    <a href="booking.html" class="dropdown-item">My Orders</a>
+
+                                    <a href="testimonial.html" class="dropdown-item">Cancel Order</a>
+                                    
+
+                                    <a href="@Url.Action("logout", "Customers")" class="dropdown-item">Logout</a>
+
+                                }
+                                else
+                                {
+                                         <a href="@Url.Action("Create", "Customers")" class="dropdown-item">Sign up</a>
+                                    <a href="@Url.Action("login", "Customers")" class="dropdown-item">Login</a>
+                                }
+                            </div>
+
+                        </div>
+
                     </div>
-                   
+
                 </div>
                 <a href="@Url.Action("login","Home")" class="py-2 px-4"><i class="fa fa-user"></i></a>
-                <a href="@Url.Action("cart","Home")" class="py-2 px-4"><i class="fa fa-shopping-cart"></i></a>
+               
+                <a href="@Url.Action("cart","Home")" class="py-2 px-4"><i class="fa fa-shopping-cart">
+            <span class="badge-popular">
+        @if (Session["mycart"] != null)
+        {
+            List<product> list;
+            list=(List<product>)Session["mycart"];
+            @list.Count;
+        } </span></i></a>
             </nav>
             <div class="container-xxl py-5 bg-dark hero-header mb-5">
                 <div class="container my-5 py-5">
@@ -125,7 +159,7 @@
 
                                         <!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
                                         Designed By <a class="border-bottom" href="https://htmlcodex.com">Fizza munawar</a><br><br>
-                                       
+
                                     </div>
                                     <div class="col-md-6 text-center text-md-end">
                                         <div class="footer-menu">
@@ -140,7 +174,6 @@
                         </div>
                     </div>
                     <!-- Footer End -->
-             
                     <!-- order booked-->
 
                     <div class="modal " id="myModal1" data-backdrop="blur">
@@ -185,28 +218,7 @@
 </body>
 
 </html>
-<script>
-    function checkFormValidity() {
-        // Get all required form elements
-        var requiredElements = document.querySelectorAll("#myModal [required]");
 
-        // Check if all required form elements are filled
-        var allFilled = true;
-        requiredElements.forEach(function (element) {
-            if (element.value === "") {
-                allFilled = false;
-            }
-        });
-
-        // If all required form elements are filled, show the modal
-        if (allFilled) {
-            $("#myModal1").modal("show");
-        } else {
-            // Otherwise, display an error message
-            alert("Please fill out all required fields.");
-        }
-    }
-</script>
 
 
 

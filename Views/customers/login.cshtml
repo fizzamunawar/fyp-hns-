@@ -77,21 +77,19 @@ span.psw {
         </style>
     </head>
     <body>
-        @using (Html.BeginForm("login", "Home", FormMethod.Post))
+        @using (Html.BeginForm("login", "Customers", FormMethod.Post))
         { 
             <form>
                 <div class="imgconta">
                     <img src="https://media.istockphoto.com/id/619400810/photo/mr-who.jpg?b=1&s=170667a&w=0&k=20&c=-gmePfcINJC_YpZE_b-6cq6go6MgS9OBhcXhKdmOFKI=" alt="Avatar" class="avatar">
-                    <h2 class="center" style="color: #FEA116">Admin login</h2>
-           
-                </div>
+                <h2 class="center" style="color: #FEA116">Customer login</h2></div>
 
                 <div class="container">
                     <label for="Admin_email"><b>E-mail</b></label>
-                    <input type="text" placeholder="Enter Email" name="Admin_email" required>
+                    <input type="text" placeholder="Enter Email" name="Customer_email" required>
 
                     <label for="Admin_password"><b>Password</b></label>
-                    <input type="password" placeholder="Enter Password" name="Admin_password" required>
+                    <input type="password" placeholder="Enter Password" name="Customer_password" required>
 
                     <button type="submit">Login</button>
                     <label>

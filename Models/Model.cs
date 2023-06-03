@@ -15,7 +15,9 @@ namespace fyp_hunger_nd_spice_.Models
         public virtual DbSet<product> products { get; set; }
         public virtual DbSet<Order> Orders { get; set; }
         public virtual DbSet<Orderdetail> Orderdetails { get; set; }
-        public virtual DbSet<Ingredient> Ingredients { get; set; }
+        public virtual DbSet<Ingredient> Ingredients { get; set; } 
+        public virtual DbSet<customer> Customers { get; set; }
+        public virtual DbSet<Feedback> Feedbacks { get; set; }
         public virtual DbSet<Cat> Cats { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
@@ -35,6 +37,15 @@ namespace fyp_hunger_nd_spice_.Models
                 .HasMany(e => e.Orderdetails)
                 .WithOptional(e => e.Order)
                 .HasForeignKey(e => e.Order_Fid);
+
+            modelBuilder.Entity<customer>()
+                .HasMany(e => e.Order)
+                .WithOptional(e => e.Customer)
+                .HasForeignKey(e => e.Customer_fid);
+            modelBuilder.Entity<customer>()
+                .HasMany(e => e.Feedback)
+                .WithOptional(e => e.Customer)
+                .HasForeignKey(e => e.Customer_fid);
 
             modelBuilder.Entity<Orderdetail>()
                 .Property(e => e.price)

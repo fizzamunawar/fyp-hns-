@@ -27,6 +27,9 @@
 </div>
     </div>
 </div>
+<div id="printArea" >
+
+
 <!-- Cart Start -->
 <div class="container-xxl py-5">
     <div class="container ">
@@ -134,16 +137,71 @@
                                                 <p><span>Rs.@shipingcost</span>Shipping Cost</p>
                                                 <h2><span>@Session["Totalamount"]</span>Grand Total</h2>
                                             </div>
-                                           
+
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                        @using (Html.BeginForm("paynow", "Home"))
+                        {
+                            <div class="checkout">
+                                <div class="container-fluid">
+                                    <div class="row">
+                                        @if (Session["order"] != null)
+                                        {
+                                            Order o = (Order)Session["order"];
+
+                                            <div class="col-lg-12 col-sm-12">
+                                                <div class="order-box">
+                                                    <H2>Customer details</H2>
+                                                    <div class="d-flex">
+                                                        <h3>Customer Name :  </h3>
+                                                        <div class="ml-auto od font-weight-bold">@o.Order_Name</div>
+                                                    </div>
+                                                    <div class="d-flex">
+                                                        <h3>Customer Email :  </h3>
+                                                        <div class="ml-auto od font-weight-bold">@o.Order_Email</div>
+                                                    </div>
+                                                    <hr class="my-1">
+                                                    <div class="d-flex">
+                                                        <h3>Customer contact detail :  </h3>
+                                                        <div class="ml-auto od  font-weight-bold">@o.Order_Contact</div>
+                                                    </div>
+                                                    <div class="d-flex">
+                                                        <h3>Customer address :  </h3>
+                                                        <div class="ml-auto od  font-weight-bold">@o.Order_Address</div>
+                                                    </div>
+                                                    <div class="d-flex">
+                                                        <h3>Customer status :  </h3>
+                                                        <div class="ml-auto  od font-weight-bold">@o.Order_status</div>
+                                                    </div>
+                                                    <hr>
+
+
+                                                </div>
+                                            </div>}
+
+                                    </div>
+                                </div>
+                            </div>
+                        }
                     </div>
                 </div>
             </div>
 
+            <input class="btn btn-danger" type="submit" value="Print Now" onclick="return PrintFunction()" />
+            <a class="btn btn-danger" href="@Url.Action("closeorder","home")" >Close Order?</a>
+        </div>
 
-            <!-- Cart End -->
+        <br />
+
+        <script type="text/javascript">
+
+            function PrintFunction() {
+                window.print();
+            }
+        </script>
+
+        <!-- Cart End -->
 

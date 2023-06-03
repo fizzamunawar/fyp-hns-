@@ -1,5 +1,6 @@
 ﻿@model IEnumerable<fyp_hunger_nd_spice_.Models.admin>
 
+@using fyp_hunger_nd_spice_.Models
 @{
     ViewBag.Title = "Index";
 }
@@ -32,7 +33,12 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
+@foreach (var item in Model)
+{
+
+    admin a = (admin)Session["admin"];
+    if (a.Admin_id==item.Admin_id)
+    {
     <tr>
         <td>
             @Html.DisplayFor(modelItem => item.Admin_name)
@@ -59,6 +65,7 @@
            
         </td>
     </tr>
+    }
 }
 
 </table>

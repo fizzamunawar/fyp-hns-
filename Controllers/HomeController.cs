@@ -62,11 +62,13 @@ namespace fyp_hunger_nd_spice_.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult login(Models.admin A)
+        public ActionResult login(admin A)
         {
-            int result = db.admins.Where(x => x.Admin_email==A.Admin_email && x.Admin_password==A.Admin_password).Count();
-            if (result==1)
+          
+            admin a = db.admins.Where(x => x.Admin_email==A.Admin_email && x.Admin_password==A.Admin_password).FirstOrDefault();
+            if (a !=null)
             {
+                Session["admin"]=a;
                 return RedirectToAction("indexadmin", "Home");
             }
             else
@@ -76,8 +78,14 @@ namespace fyp_hunger_nd_spice_.Controllers
             }
 
         }
+        public ActionResult logout()
+        {
+            Session["admin"]= null;
+                  return RedirectToAction("login"); }
 
-        public ActionResult cart()
+
+
+            public ActionResult cart()
         {
             return View();
         }
@@ -107,10 +115,26 @@ namespace fyp_hunger_nd_spice_.Controllers
                 list=(List<product>)Session["mycart"];
 
             }
-            list.Add(db.products.Where(p => p.Products_id==id).FirstOrDefault());
-            list[list.Count-1].pro_quan=1;
-            Session["mycart"]= list;
-            return RedirectToAction("cart");
+            Boolean isexist = false;
+            foreach (var item in list)
+            {
+                if (id==item.Products_id)
+                {
+                    isexist =true;
+                    item.pro_quan++;
+                }
+            }
+            if (isexist==false)
+            {
+
+
+                list.Add(db.products.Where(p => p.Products_id==id).FirstOrDefault());
+                list[list.Count-1].pro_quan=1;
+            }
+              
+                Session["mycart"]= list;
+                return RedirectToAction("cart");
+            
         }
 
         public ActionResult minus(int rowno)
@@ -149,43 +173,32 @@ namespace fyp_hunger_nd_spice_.Controllers
         public ActionResult paynow(Order o)
         {
             o.Order_date=System.DateTime.Now;
+            if (Session["customer"] !=null)
+            {
+                customer c = (customer)Session["customer"];
+                o.Customer_fid=c.Customer_id;
+            }
+
             o.Order_type="Sale";
-            o.Order_status="Paid";
 
-
-
-           
             Session["order"]=o;
-            return Redirect("https://www.sandbox.paypal.com/cgi-bin/webscr?cmd=_xclick&business=huda.basharat41@gmail.com&item_name= hungernspiceitems&return=https://localhost:44331/Home/orderbooked&amount=" + double.Parse(Session["Totalamount"].ToString()) / 286);
+            if (o.Order_status=="COD")
+            {
+                return RedirectToAction("orderbooked");
+
+            }
+            else
+
+            {
+                   return Redirect("https://www.sandbox.paypal.com/cgi-bin/webscr?cmd=_xclick&business=huda.basharat41@gmail.com&item_name= hungernspiceitems&return=https://localhost:44331/Home/orderbooked&amount=" + double.Parse(Session["Totalamount"].ToString()) / 286);
+            }
         }
 
         public ActionResult orderbooked()
 
         { Order o = (Order)Session["order"];
-           
 
-
-          /*
-            string senderEmail = "fizzamunawar227@gmail.com";
-            string recipientEmail = o.Order_Email;
-            string subject = "Order Confirmation";
-            string body = " <b>Hunger & Spice !</b> </br> Thanks for your order";
-
-          //Create a MailMessage object
-            MailMessage mailMessage = new MailMessage(senderEmail, recipientEmail, subject, body);
-
-          // Create a SmtpClient object
-            SmtpClient smtpClient = new SmtpClient("smtp.gmail.com", 587);
-
-            //Set the SMTP client properties
-            smtpClient.EnableSsl = true;
-            smtpClient.UseDefaultCredentials = false;
-            smtpClient.Credentials = new System.Net.NetworkCredential("fizzamunawar227@gmail.com", "gcliobddrvgwtjvo");
-
-           //Send the email
-            smtpClient.Send(mailMessage);
-            
-            */
+            //+MailProvider.SentfromMail(BaseHelper.Customer.CUSTOMER_EMAIL, "Order Confirmation", "Your Order has been booked and will be delivered within a day, Regards Hunger & spice <br /> Thanks");
 
             db.Orders.Add(o);
             db.SaveChanges();
@@ -206,16 +219,17 @@ namespace fyp_hunger_nd_spice_.Controllers
                 db.SaveChanges();
             }
 
-
-
-
-
-
-
-
-
             return View();
         }
+        public ActionResult closeorder()
+        {
+            Session["Order"]= null;
+            Session["mycart"]= null;
+            Session["Totalamount"]=null;
+
+            return RedirectToAction("indexcustomer");
+        }
+
 
 
 

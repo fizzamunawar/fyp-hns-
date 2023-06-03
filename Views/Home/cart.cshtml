@@ -136,11 +136,18 @@
                                                 <p><span>Rs.@shipingcost</span>Shipping Cost</p>
                                                 <h2><span>@Session["Totalamount"]</span>Grand Total</h2>
                                             </div>
+
+                                            
                                             <div class="cart-btn">
-                                                <button> <a href="@Url.Action("Menu","Home")" style="color:black;" ><b>Update cart</b></a></button>
+
+                                               
+                                                @if (Session["mycart"] !=null)
+                                                {
+                                                    <button> <a href="@Url.Action("Menu","Home")" style="color:black;"><b>Update cart</b></a></button>
+
+                                                    <button> <a href="@Url.Action("checkout", "Home")" style="color:white;">checkout</a></button>}
 
 
-                                                 <button> <a href="@Url.Action("checkout","Home")"  style="color:white;"  >checkout</a></button>
                                             </div>
                                         </div>
                                     </div>
@@ -154,5 +161,5 @@
 
             <!-- Cart End -->
             <script type="text/javascript">
-                window.onload = function () { window.scrollBy(0, 400) }
+                window.onload = function () { window.scrollBy(0, 200) }
             </script>

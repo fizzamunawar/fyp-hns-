@@ -1,0 +1,80 @@
+﻿@model IEnumerable<fyp_hunger_nd_spice_.Models.customer>
+    @using fyp_hunger_nd_spice_.Models;
+@{
+    Layout= "~/Views/Shared/_layoutcustomer.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+
+    <h2 class="display-3 text-center text-white mb-3 animated slideInDown">Manage Account</h2>
+   
+    </div>
+    </div>
+    </div>
+    
+    <table class="table">
+        <h3>My Account</h3>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Customer_name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Customer_email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Customer_password)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Customer_contact)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Customer_address)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+
+        {
+            if (Session["customer"] !=null)
+            {
+                customer c = (customer)Session["customer"];
+                if (c.Customer_id==item.Customer_id)
+                {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Customer_name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Customer_email)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Customer_password)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Customer_contact)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Customer_address)
+                </td>
+                <td>
+                    <a class=" fa fa-edit" href=" @Url.Action("Edit", "customers", new { id = item.Customer_id }) "></a> |
+                    <a class=" fa fa-book" href=" @Url.Action("Details", "customers", new { id = item.Customer_id })"></a> |
+                    <a class=" fa fa-trash" href=" @Url.Action("Delete", "customers", new { id = item.Customer_id })"></a>
+
+                </td>
+            </tr>
+                }
+            }
+        }
+
+    </table>
+</body>
+</html>

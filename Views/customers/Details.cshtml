@@ -1,0 +1,72 @@
+﻿@model fyp_hunger_nd_spice_.Models.customer
+
+@{
+    Layout= "~/Views/Shared/_layoutcustomer.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Details</title>
+</head>
+<body>
+    <h1 class="display-3 text-center text-white mb-3 animated slideInDown">Details</h1>
+
+    </div>
+    </div>
+    </div>
+    <div>
+
+        <h4>My Account Deatils</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Customer_name)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Customer_name)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Customer_email)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Customer_email)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Customer_password)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Customer_password)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Customer_contact)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Customer_contact)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Customer_address)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Customer_address)
+            </dd>
+
+        </dl>
+    </div>
+    <p>
+        <a class="btn btn-danger" href="@Url.Action("Edit","customers")">Edit</a>
+        <a class="btn btn-danger" href="@Url.Action("index","customers")">Cancel</a>
+    </p>
+</body>
+</html>
