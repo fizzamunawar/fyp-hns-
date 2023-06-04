@@ -1,0 +1,108 @@
+﻿
+@model IEnumerable<fyp_hunger_nd_spice_.Models.Order>
+@{
+
+    Layout= "~/Views/Shared/_layoutcustomer.cshtml";
+    ViewBag.Title = "Invoice";
+    double totalamount = 0;
+    int totalqty = 0;
+}
+<h1 class="display-3 text-center text-white mb-3 animated slideInDown">Invoice</h1>
+
+            </div>
+        </div>
+    </div>
+<br />
+
+@foreach (var o in Model)
+{
+    <div class="order-container1">
+        <div class="order-details1">
+            <h2>Order Detail</h2>
+            <!-- Add the order details content here -->
+        </div>
+
+        <div class="print-button1">
+            <input class="btn btn-danger" type="submit" value="Print Now" onclick="return PrintFunction()" />
+
+        </div>
+    </div>
+
+    <table class="table table-bordered table-hover ">
+
+        <tr>
+            <th>Order Number</th>
+            <td>@o.Order_ID</td>
+            <th>Person Name</th>
+            <td>@o.Order_Name</td>
+        </tr>
+        <tr>
+            <th>Order Date</th>
+            <td>@o.Order_date</td>
+            <th>Contact</th>
+            <td>@o.Order_Contact</td>
+        </tr>
+        <tr>
+            <th>Order Status</th>
+            <td>@o.Order_status</td>
+            <th>Email</th>
+            <td>@o.Order_Email</td>
+        </tr>
+        <tr>
+            <th>Order Type</th>
+            <td>@o.Order_type</td>
+            <th>Address</th>
+            <td>@o.Order_Address</td>
+        </tr>
+    </table>
+
+
+    <b colspan="6" align="center" style="font-size:2rem;">Product Detail</b>
+
+
+    <table class="table table-bordered table-hover ">
+
+
+        <tr>
+            <th>Product picture</th>
+            <th>Product Name</th>
+            <th>Product Description</th>
+            <th>Product Price</th>
+            <th>Product Quantity</th>
+            <th>Product Amount</th>
+
+        </tr>
+        @foreach (var od in o.Orderdetails)
+        {
+
+            <tr>
+                <td><img height="100px" width="100px" src="@Url.Content(od.product.Products_pic)" /></td>
+                <td>@od.product.Products_name</td>
+                <td>@od.product.Products_description</td>
+                <td>@od.price</td>
+                <td>@od.Quantity</td>
+                <td>@(double.Parse(od.price.ToString())*int.Parse(od.Quantity.ToString()))</td>
+
+            </tr>
+            totalqty += int.Parse(od.Quantity.ToString());
+            totalamount += double.Parse(od.price.ToString())* int.Parse(od.Quantity.ToString());
+        }
+
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td>@totalqty</td>
+            <td>@totalamount</td>
+
+        </tr>
+
+    </table>
+}
+<script type="text/javascript">
+
+    function PrintFunction() {
+        window.print();
+    }
+</script>

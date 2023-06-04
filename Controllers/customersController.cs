@@ -143,9 +143,28 @@ namespace fyp_hunger_nd_spice_.Controllers
                 Session["customer"]= null;
                 return RedirectToAction("indexcustomer","home");
             }
+         public ActionResult HISTORY()
+            {
+                return View();
+            }
+        public ActionResult SaleInvoice(int id)
+        {
+            var o = db.Orders.Where(x => x.Order_ID==id).ToList();
+
+            return View(o);
+        } public ActionResult Cancel(int id)
+        {
+           Order o = db.Orders.Where(x => x.Order_ID==id).FirstOrDefault();
+            o.Order_status ="Cancel";
+
+            db.Entry(o).State = EntityState.Modified;
+            db.SaveChanges();
+            
+            return RedirectToAction("HISTORY");
+        }
 
 
 
-        
+
     }
 }

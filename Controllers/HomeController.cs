@@ -214,6 +214,7 @@ namespace fyp_hunger_nd_spice_.Controllers
                 od.Product_fid=P[i].Products_id;
                 od.Quantity=P[i].pro_quan;
                 od.price=P[i].Products_price;
+                od.cost=P[i].cost;
 
                 db.Orderdetails.Add(od);
                 db.SaveChanges();

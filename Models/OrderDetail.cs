@@ -19,6 +19,8 @@
 
         [Column(TypeName = "numeric")]
         public decimal? price { get; set; }
+        [Column(TypeName = "numeric")]
+        public decimal? cost { get; set; }
 
         public int? Quantity { get; set; }
 

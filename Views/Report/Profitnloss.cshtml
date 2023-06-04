@@ -1,0 +1,88 @@
+﻿
+@model IEnumerable<fyp_hunger_nd_spice_.Models.Order>
+@using fyp_hunger_nd_spice_.Models
+
+
+@{
+    Model db = new Model();
+
+    int no = 0;
+    Layout= "~/Views/Shared/_layoutadmin.cshtml";
+    ViewBag.Title= "Profit and loss Report";
+}
+<h2>Profit & loss report</h2>
+
+@using (Html.BeginForm("Profitnloss", "Report", FormMethod.Post))
+{
+
+    <table class="table table-bordered table-hover ">
+        <tr>
+            <th>Date From:</th>
+            <td><input type="datetime-local" name="Datefrom" value="@ViewBag.DateFrom" class="form-control" /></td>
+            <th>Date To:</th>
+            <td><input type="datetime-local" name="DateTo" value="@ViewBag.DateTo" class="form-control" /></td>
+            <td><input type="submit" value="Generate Reports" class="btn btn-danger btn-block" /></td>
+
+        </tr>
+        <tr>
+        </tr>
+    </table>
+}
+@{
+    decimal? netprofit = 0;
+
+
+    <table class="table table-bordered table-hover ">
+        <tr style="background-color: #4ECDC4">
+            <th align="center">Sr #</th>
+            <th align="center">Order ID</th>
+            <th align="center">Order Date</th>
+            <th align="center">Customer Name</th>
+            <th align="center">Order Sale Cost</th>
+            <th align="center">Order Cost</th>
+            <th align="center">Gross Profit & Loss</th>
+
+
+
+
+            <th align="center">Order status</th>
+            <th align="center" colspan="2">Action</th>
+
+
+        </tr>
+        @foreach (var o in Model)
+        {
+            if (o.Order_status!="Cancel")
+            {
+                no++;
+            <tr>
+                <td align="center">@no</td>
+                <td align="center">Order-@o.Order_ID</td>
+                <td align="center">@DateTime.Parse(o.Order_date.ToString()).ToLongDateString()</td>
+                <td align="center">@o.Order_Name</td>
+                <td align="center">@o.Orderdetails.Sum(x => x.price * x.Quantity)</td>
+                <td align="center">@o.Orderdetails.Sum(x => x.cost * x.Quantity)</td>
+                <td align="center">@(o.Orderdetails.Sum(x => x.price * x.Quantity)-o.Orderdetails.Sum(x => x.cost * x.Quantity))</td>
+                <td align="center">@o.Order_status</td>
+               
+                <th align="center"><a href="@Url.Action("SaleInvoice", "Report", new { id = o.Order_ID })" class="btn btn-theme">Veiw invoice</a></th>
+            </tr>
+                netprofit += (o.Orderdetails.Sum(x => x.price * x.Quantity)-o.Orderdetails.Sum(x => x.cost * x.Quantity));
+            }
+        }
+
+        <tr>
+          
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td align="center">Net Profit and loss</td>
+            <td align="center">@netprofit</td>
+         
+            <td></td>
+        </tr>
+
+    </table>
+}

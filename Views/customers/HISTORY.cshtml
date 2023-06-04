@@ -1,0 +1,78 @@
+﻿
+@using fyp_hunger_nd_spice_.Models
+
+
+@{
+    Model db = new Model();
+    customer c = (customer)Session["customer"];
+    Layout= "~/Views/Shared/_layoutcustomer.cshtml";
+
+    int no = 0;
+}
+
+<h1 class="display-3 text-center text-white mb-3 animated slideInDown">Details</h1>
+
+    </div>
+    </div>
+    </div>
+<div>
+
+    <h4 class="centered">My Orders Details</h4>
+
+    <table class="table table-bordered table-hover ">
+        <tr style="background-color: #FEA116; color:white;">
+            <th align="center">Sr #</th>
+            <th align="center">Order ID</th>
+            <th align="center">Order Date</th>
+            <th align="center">Customer Name</th>
+            <th align="center">Customer Email</th>
+            <th align="center">Customer Address</th>
+            <th align="center">Customer Contact</th>
+
+            <th align="center">Order status</th>
+
+
+            <th align="center" colspan="2"> Action </th>
+
+        </tr>
+        @foreach (var o in db.Orders.Where(x => x.Order_type=="Sale" )
+            )
+        {
+            no++;
+            if (o.Customer_fid==c.Customer_id)
+            {
+                if (o.Order_status != "Cancel")
+                {
+                <tr>
+                    <td align="center">@no</td>
+                    <td align="center">Order-@o.Order_ID</td>
+                    <td align="center">@DateTime.Parse(o.Order_date.ToString()).ToLongDateString()</td>
+                    <td align="center">@o.Order_Name</td>
+                    <td align="center">@o.Order_Email</td>
+                    <td align="center">@o.Order_Address</td>
+                    <td align="center">@o.Order_Contact</td>
+                    <td align="center">@o.Order_status</td>
+
+                    <th align="center"><a href="@Url.Action("Cancel", "Customers", new { id = o.Order_ID })" class="btn btn-danger">Cancel order</a></th>
+                    <th align="center"><a href="@Url.Action("SaleInvoice", "Customers", new { id = o.Order_ID })" class="btn btn-success">Veiw invoice</a></th>
+                </tr>}
+                else if (o.Order_status == "Cancel")
+                {
+    <tr>
+        <td align="center">@no</td>
+        <td align="center">Order-@o.Order_ID</td>
+        <td align="center">@DateTime.Parse(o.Order_date.ToString()).ToLongDateString()</td>
+        <td align="center">@o.Order_Name</td>
+        <td align="center">@o.Order_Email</td>
+        <td align="center">@o.Order_Address</td>
+        <td align="center">@o.Order_Contact</td>
+        <td align="center">@o.Order_status</td>
+
+        <th align="center"><button  disabled  class="cancel1">Cancelled</button></th>
+        <th align="center"><a href="@Url.Action("SaleInvoice", "Customers", new { id = o.Order_ID })" class="btn btn-success">Veiw invoice</a></th>
+    </tr>
+                }
+            }
+        }
+
+    </table>

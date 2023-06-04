@@ -9,6 +9,8 @@ namespace fyp_hunger_nd_spice_.Controllers
 {
     public class ReportController : Controller
     {
+        private const string V = "Cancel";
+
         // GET: Report
         private Model db = new Model();
         public ActionResult Parchasereport(Filtermodel fm)
@@ -77,7 +79,41 @@ namespace fyp_hunger_nd_spice_.Controllers
 
 
             
-            var o = db.Orders.Where(x => x.Order_type=="Sale" & x.Order_date >= fm.DateFrom & x.Order_date <= fm.DateTo).ToList();
+            var o = db.Orders.Where(x => x.Order_type =="Sale"  & x.Order_date >= fm.DateFrom & x.Order_date <= fm.DateTo).ToList();
+            return View(o);
+        } public ActionResult Profitnloss(Filtermodel fm)
+        {
+
+            if (fm.DateFrom == null)
+            {
+
+
+                ViewBag.DateFrom= System.DateTime.Today.ToString("s");
+                fm.DateFrom = System.DateTime.Today;
+
+            }
+            else
+            {
+                ViewBag.DateFrom = Convert.ToDateTime(fm.DateFrom).ToString("s");
+            }
+
+            if (fm.DateTo == null)
+            {
+
+
+                ViewBag.DateTo= System.DateTime.Now.ToString("s");
+                fm.DateTo = System.DateTime.Now;
+
+            }
+            else
+            {
+                ViewBag.DateTo = Convert.ToDateTime(fm.DateTo).ToString("s");
+
+            }
+
+
+            
+            var o = db.Orders.Where(x => x.Order_type=="Sale"  & x.Order_date >= fm.DateFrom & x.Order_date <= fm.DateTo).ToList();
             return View(o);
         }
         public ActionResult Invoice(int id)

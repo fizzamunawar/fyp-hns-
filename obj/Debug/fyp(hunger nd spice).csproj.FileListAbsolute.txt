@@ -281,3 +281,4 @@ C:\Users\admin\OneDrive\Desktop\fyp\fyp\fyp-hns-\obj\Debug\fyp(hunger nd spice).
 C:\web\fyp\fyp-hns-\obj\Debug\fyp_hunger_nd_spice_.Migrations.fiza.resources
 C:\web\fyp\fyp-hns-\obj\Debug\fyp_hunger_nd_spice_.Migrations.fizzs.resources
 C:\web\fyp\fyp-hns-\obj\Debug\fyp_hunger_nd_spice_.Migrations.fizza.resources
+C:\web\fyp\fyp-hns-\obj\Debug\fyp_hunger_nd_spice_.Migrations.fizza1.resources

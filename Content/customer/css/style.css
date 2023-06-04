@@ -1081,3 +1081,19 @@ hr {
         .orderbox{
             margin:5px;
         }
+.order-container1 {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom:5px;
+}
+
+.order-details1 {
+    width: 70%; /* Adjust the width as needed */
+}
+
+.print-button1 {
+    text-align: right;
+}
+.cancel1{
+  margin-auto;
+}
