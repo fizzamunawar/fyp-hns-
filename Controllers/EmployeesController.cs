@@ -18,8 +18,11 @@ namespace fyp_hunger_nd_spice_.Controllers
 
         // GET: Employees1
         public ActionResult Index()
-        {
-            return View(db.Employee.ToList());
+
+        { 
+            
+                return View(db.Employee.ToList());
+            
         }
 
         // GET: Employees1/Details/5

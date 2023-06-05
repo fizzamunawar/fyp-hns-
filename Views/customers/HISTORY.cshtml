@@ -68,7 +68,10 @@
         <td align="center">@o.Order_Contact</td>
         <td align="center">@o.Order_status</td>
 
-        <th align="center"><button  disabled  class="cancel1">Cancelled</button></th>
+        <th align="center">
+            <button disabled class="cancel1" >Cancelled</button>
+        </th>
+
         <th align="center"><a href="@Url.Action("SaleInvoice", "Customers", new { id = o.Order_ID })" class="btn btn-success">Veiw invoice</a></th>
     </tr>
                 }

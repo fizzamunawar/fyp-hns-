@@ -193,6 +193,10 @@
     <Compile Include="Migrations\202306032203201_fizza1.designer.cs">
       <DependentUpon>202306032203201_fizza1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202306050520509_vsksd.cs" />
+    <Compile Include="Migrations\202306050520509_vsksd.designer.cs">
+      <DependentUpon>202306050520509_vsksd.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Feedback.cs" />
     <Compile Include="Models\Customer.cs" />
@@ -668,6 +672,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202306032203201_fizza1.resx">
       <DependentUpon>202306032203201_fizza1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202306050520509_vsksd.resx">
+      <DependentUpon>202306050520509_vsksd.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

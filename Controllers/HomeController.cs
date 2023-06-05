@@ -198,10 +198,30 @@ namespace fyp_hunger_nd_spice_.Controllers
 
         { Order o = (Order)Session["order"];
 
-            //+MailProvider.SentfromMail(BaseHelper.Customer.CUSTOMER_EMAIL, "Order Confirmation", "Your Order has been booked and will be delivered within a day, Regards Hunger & spice <br /> Thanks");
 
             db.Orders.Add(o);
             db.SaveChanges();
+
+
+
+
+
+            //Email REmainder
+            MailMessage message = new MailMessage();
+            message.From= new MailAddress("Fizzamunawar227@gmail.com");
+            message.To.Add(new MailAddress(o.Order_Email));
+            message.Subject = "Order Confirmation";
+            message.IsBodyHtml = true; //to make message body as html  
+            message.Body = "<b>Multilinks</b><br> Thanks For Order.Your Order Will be deliverd in a Days";
+
+            SmtpClient SmtpServer = new SmtpClient("smtp.gmail.com");
+            SmtpServer.Port = 587;
+            SmtpServer.EnableSsl = true;
+            SmtpServer.Credentials = new System.Net.NetworkCredential("Fizzamunawar227@gmail.com", "qnfjwnpncjrviwsv");
+            SmtpServer.Send(message);
+
+
+
 
             List<product> P = (List<product>)Session["mycart"];
             for (int i = 0; i<P.Count; i++)

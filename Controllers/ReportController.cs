@@ -76,10 +76,14 @@ namespace fyp_hunger_nd_spice_.Controllers
                 ViewBag.DateTo = Convert.ToDateTime(fm.DateTo).ToString("s");
 
             }
-
-
             
-            var o = db.Orders.Where(x => x.Order_type =="Sale"  & x.Order_date >= fm.DateFrom & x.Order_date <= fm.DateTo).ToList();
+            
+
+
+
+
+
+            var o = db.Orders.Where(x => x.Order_type =="Sale"  & x.Order_date >= fm.DateFrom & x.Order_date <= fm.DateTo    ).ToList();
             return View(o);
         } public ActionResult Profitnloss(Filtermodel fm)
         {
@@ -127,13 +131,21 @@ namespace fyp_hunger_nd_spice_.Controllers
             var o = db.Orders.Where(x => x.Order_ID==id).ToList();
 
             return View(o);
-        } 
-        
-      public ActionResult employeereport()
+        }
+
+        public ActionResult employeereport(string role)
         {
 
-            var p = db.Employee.ToList();
-            return View(p);
+            if (role != null)
+            {
+                var e = db.Employee.Where(x => x.Employee_Role==role).ToList();
+                return View(e);
+            }
+            else
+            {
+                var p = db.Employee.ToList();
+                return View(p);
+            }
         }
     }
 }

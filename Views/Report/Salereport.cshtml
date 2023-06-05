@@ -10,19 +10,17 @@
 @using (Html.BeginForm("Salereport", "Report", FormMethod.Post))
 {
 
-    <table class="table table-bordered table-hover ">
-        <tr>
-            <th>Date From:</th>
-            <td><input type="datetime-local" name="Datefrom" value="@ViewBag.DateFrom" class="form-control" /></td>
-            <th>Date To:</th>
-            <td><input type="datetime-local" name="DateTo" value="@ViewBag.DateTo" class="form-control" /></td>
-            <td><input type="submit" value="Generate Reports" class="btn btn-danger btn-block" /></td>
+<table class="table table-bordered table-hover ">
+    <tr>
+        <th>Date From:</th>
+        <td><input type="datetime-local" name="Datefrom" value="@ViewBag.DateFrom" class="form-control" /></td>
+        <th>Date To:</th>
+        <td><input type="datetime-local" name="DateTo" value="@ViewBag.DateTo" class="form-control" /></td>
+        <td><input type="submit" value="Generate Reports" class="btn btn-danger btn-block" /></td>
 
-        </tr>
-        <tr>
-           
-        </tr>
-    </table>
+    </tr>
+  
+</table>
 }
 
 <table class="table table-bordered table-hover ">
