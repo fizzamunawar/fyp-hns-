@@ -6,14 +6,14 @@
     int total_qua = 0;
     int shipingcost = 100;
     decimal totalbill = 0;
-    Layout= "~/Views/Shared/_layoutcustomer.cshtml";
+    Layout = "~/Views/Shared/_layoutcustomer.cshtml";
 }
 
 
 <html>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-  
+
 </html>
 
 
@@ -54,7 +54,7 @@
                                             </tr>
                                         </thead>
                                         <tbody class="align-middle">
-                                            @if (Session["mycart"] !=null)
+                                            @if (Session["mycart"] != null)
                                             {
 
                                                 foreach (var item in (List<product>)Session["mycart"])
@@ -91,18 +91,18 @@
                                                         <td><a href="@Url.Action("remove", "Home", new { rowno = row })"><i class="fa fa-trash"></i></a></td>
                                                     </tr>
                                                     row++;
-                                                    total_qua+=item.pro_quan;
+                                                    total_qua += item.pro_quan;
 
-                                                    totalbill+= (decimal.Parse(item.Products_price.ToString())* int.Parse(item.pro_quan.ToString()));
+                                                    totalbill += (decimal.Parse(item.Products_price.ToString()) * int.Parse(item.pro_quan.ToString()));
 
                                                 }
 
-                                                Session["Totalamount"]=totalbill + shipingcost;
-                                                Session["Totalamnt"]=totalbill;
+                                                Session["Totalamount"] = totalbill + shipingcost;
+                                                Session["Totalamnt"] = totalbill;
 
 
                                             }
-                                            @if (Session["mycart"]== null || row==0)
+                                            @if (Session["mycart"] == null || row == 0)
                                             {
                                                 <tr><td colspan="6" align="center" style="font-size:20px;">Your cart is empty <a href="@Url.Action("Menu","Home")">Click Here</a> to check menu</td></tr>
                                             }
@@ -137,11 +137,11 @@
                                                 <h2><span>@Session["Totalamount"]</span>Grand Total</h2>
                                             </div>
 
-                                            
+
                                             <div class="cart-btn">
 
-                                               
-                                                @if (Session["mycart"] !=null)
+
+                                                @if (Session["mycart"] != null)
                                                 {
                                                     <button> <a href="@Url.Action("Menu","Home")" style="color:black;"><b>Update cart</b></a></button>
 

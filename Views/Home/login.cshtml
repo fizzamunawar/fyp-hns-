@@ -73,6 +73,8 @@ span.psw {
   .cancelbtn {
     width: 100%;
   }
+
+            
 }
         </style>
     </head>
@@ -80,11 +82,10 @@ span.psw {
         @using (Html.BeginForm("login", "Home", FormMethod.Post))
         { 
             <form>
-                <div class="imgconta">
-                    <img src="https://media.istockphoto.com/id/619400810/photo/mr-who.jpg?b=1&s=170667a&w=0&k=20&c=-gmePfcINJC_YpZE_b-6cq6go6MgS9OBhcXhKdmOFKI=" alt="Avatar" class="avatar">
-                    <h2 class="center" style="color: #FEA116">Admin login</h2>
-           
-                </div>
+               <div class="imgconta">
+                   <img src="https://media.istockphoto.com/id/619400810/photo/mr-who.jpg?b=1&s=170667a&w=0&k=20&c=-gmePfcINJC_YpZE_b-6cq6go6MgS9OBhcXhKdmOFKI=" alt="Avatar" class="avatar" style="animation: none !important;">
+                   <h2 class="center" style="color: #FEA116">Admin login</h2>
+               </div>
 
                 <div class="container">
                     <label for="Admin_email"><b>E-mail</b></label>

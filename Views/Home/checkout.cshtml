@@ -71,15 +71,16 @@
                                         <input class="form-control" name="Order_Name" id="nameInput" type="text" placeholder="Name" required>
                                         <b><span id="nameError" class="formerror" style="color:red"></span></b>
                                     </div>
-
                                     <div class="col-md-6">
                                         <label>E-mail</label>
-                                        <input class="form-control" name="Order_Email"  id="emailInput" type="email" placeholder="E-mail" required>
-                                        <b><span id="emailError" class="formerror"></span></b>
+                                        <input class="form-control" name="Order_Email" id="emailInput" type="text" placeholder="E-mail" required>
+                                        <b><span id="nameError" class="formerror" style="color:red"></span></b>
                                     </div>
+
+                                    
                                     <div class="col-md-6">
                                         <label>Mobile No</label>
-                                        <input class="form-control" name="Order_Contact"  id="contactInput" type="text" placeholder="Mobile No" required>
+                                        <input class="form-control" name="Order_Contact" id="contactInput" type="text" placeholder="Mobile No" required>
                                         <b><span id="contactError" class="formerror" style="color:red"></span></b>
                                     </div>
                                     <div class="col-md-12">
@@ -99,12 +100,12 @@
 
                             <p class="sub-total">Sub Total<span>Rs.@Session["Totalamnt"]</span></p>
                             <p class="ship-cost">Shipping Cost<span>Rs.100</span></p>
-                            <p class="ship-cost">
-                                Payment mode<span>
-                                    <input type="radio" name="Order_status" value="COD" checked="checked" />COD
-                                    <input type="radio" name="Order_status" value="Paid" />
-                                </span>
-                            </p>PAYPAL
+                            <p class="ship-cost  ">Payment mode
+                                    <span>
+                                                <input class="mx-1  flex-row align-items-center" type="radio" name="Order_status" value="COD" checked="checked" />COD
+                                                <input class="mx-1  flex-row align-items-center" type="radio" name="Order_status" value="Paid" />PAYPAL
+                                    </span>
+                            </p>
                             <h2>Grand Total<span>Rs.@Session["Totalamount"]</span></h2>
                         </div>
 
