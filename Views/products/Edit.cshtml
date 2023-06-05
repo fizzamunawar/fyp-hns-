@@ -52,7 +52,9 @@
             @Html.LabelFor(model => model.Products_pic, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.Products_pic, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Products_pic, "", new { @class = "text-danger" })
+                <div class="col-md-10">
+                    <input type="file" name="Pro" required />
+                </div>
             </div>
         </div>
 

@@ -52,7 +52,7 @@ namespace fyp_hunger_nd_spice_.Controllers
             {
                 db.Customers.Add(customer);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("login");
             }
 
             return View(customer);

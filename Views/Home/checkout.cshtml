@@ -164,7 +164,7 @@
         }
 
         // Validate mobile number format using regular expression
-        var contactPattern = /^\d{11}$/;
+        var contactPattern = /^03\d{9}$/;
         if (!contactPattern.test(contactInput)) {
             contactError.textContent = "Invalid mobile number format.";
             return false;

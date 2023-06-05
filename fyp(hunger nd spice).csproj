@@ -197,6 +197,10 @@
     <Compile Include="Migrations\202306050520509_vsksd.designer.cs">
       <DependentUpon>202306050520509_vsksd.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202306051200271_jgu.cs" />
+    <Compile Include="Migrations\202306051200271_jgu.designer.cs">
+      <DependentUpon>202306051200271_jgu.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Feedback.cs" />
     <Compile Include="Models\Customer.cs" />
@@ -628,6 +632,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="propic\" />
+    <Folder Include="Views\Forgot password\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -675,6 +680,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202306050520509_vsksd.resx">
       <DependentUpon>202306050520509_vsksd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202306051200271_jgu.resx">
+      <DependentUpon>202306051200271_jgu.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

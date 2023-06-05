@@ -283,3 +283,4 @@ C:\web\fyp\fyp-hns-\obj\Debug\fyp_hunger_nd_spice_.Migrations.fizzs.resources
 C:\web\fyp\fyp-hns-\obj\Debug\fyp_hunger_nd_spice_.Migrations.fizza.resources
 C:\web\fyp\fyp-hns-\obj\Debug\fyp_hunger_nd_spice_.Migrations.fizza1.resources
 C:\web\fyp\fyp-hns-\obj\Debug\fyp_hunger_nd_spice_.Migrations.vsksd.resources
+C:\web\fyp\fyp-hns-\obj\Debug\fyp_hunger_nd_spice_.Migrations.jgu.resources

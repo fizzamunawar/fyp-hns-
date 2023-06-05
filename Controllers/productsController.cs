@@ -82,7 +82,7 @@ namespace fyp_hunger_nd_spice_.Controllers
             ViewBag.Products_id = new SelectList(db.products, "Products_id", "Products_name", product.Products_id);
             return View(product);
         }
-
+       
         // POST: products/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
