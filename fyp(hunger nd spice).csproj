@@ -628,6 +628,7 @@
     <Content Include="Views\customers\HISTORY.cshtml" />
     <Content Include="Views\customers\SaleInvoice.cshtml" />
     <Content Include="Views\Report\Profitnloss.cshtml" />
+    <Content Include="Views\Report\Customerreport.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

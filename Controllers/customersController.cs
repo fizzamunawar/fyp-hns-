@@ -48,6 +48,14 @@ namespace fyp_hunger_nd_spice_.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "Customer_id,Customer_name,Customer_email,Customer_password,Customer_contact,Customer_address")] customer customer)
         {
+            // Check if the email address is already registered
+            var existingCustomer = db.Customers.FirstOrDefault(c => c.Customer_email == customer.Customer_email);
+            if (existingCustomer != null)
+            {
+                ModelState.AddModelError("Customer_email", "This email address is already registered.");
+                return View(customer);
+            }
+
             if (ModelState.IsValid)
             {
                 db.Customers.Add(customer);
@@ -57,6 +65,7 @@ namespace fyp_hunger_nd_spice_.Controllers
 
             return View(customer);
         }
+
 
         // GET: customers/Edit/5
         public ActionResult Edit(int? id)

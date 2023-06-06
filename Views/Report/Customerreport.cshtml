@@ -1,0 +1,64 @@
+﻿
+@model IEnumerable<fyp_hunger_nd_spice_.Models.customer>
+
+
+@{
+    int no = 0;
+    Layout= "~/Views/Shared/_layoutadmin.cshtml";
+
+}
+
+<h2>Customer report</h2>
+
+
+
+<table class="table table-bordered table-hover ">
+    <tr style="background-color: #4ECDC4">
+
+
+        <th align="center">Sr #</th>
+        <th align="center">Customer ID</th>
+        <th align="center">Customer Name</th>
+
+        
+        <th align="center">Customer Email</th>
+        <th align="center">Customer Password</th>
+
+        <th align="center">Customer  Contact</th>
+        <th align="center">Customer  Address</th>
+        <th align="center">No. of orders</th>
+
+
+   
+
+
+
+
+    </tr>
+    @foreach (var p in Model)
+    {
+        no++;
+        <tr>
+
+
+            <td align="center">@no</td>
+            <td align="center">Id # @p.Customer_id</td>
+
+            <td align="center">@p.Customer_name</td>
+            <td align="center">@p.Customer_email</td>
+            <td align="center">@p.Customer_password</td>
+            <td align="center">@p.Customer_contact</td>
+            <td align="center">@p.Customer_address</td>
+            <td align="center">@p.Order.Count</td>
+            
+
+
+
+
+
+
+        </tr>
+
+    }
+
+</table>

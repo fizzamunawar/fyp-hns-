@@ -145,7 +145,15 @@ namespace fyp_hunger_nd_spice_.Controllers
             {
                 var p = db.Employee.ToList();
                 return View(p);
+            } }
+            public ActionResult customerreport() { 
+        
+
+            
+            
+                var p = db.Customers.ToList();
+                return View(p);
             }
         }
-    }
+    
 }
