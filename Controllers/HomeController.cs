@@ -212,7 +212,7 @@ namespace fyp_hunger_nd_spice_.Controllers
             message.To.Add(new MailAddress(o.Order_Email));
             message.Subject = "Order Confirmation";
             message.IsBodyHtml = true; //to make message body as html  
-            message.Body = "<b>Multilinks</b><br> Thanks For Order.Your Order Will be deliverd in a Days";
+            message.Body = "<b>Hunger & Spice</b><br> Thanks For Order.Your Order Will be deliverd in a Days";
 
             SmtpClient SmtpServer = new SmtpClient("smtp.gmail.com");
             SmtpServer.Port = 587;
@@ -251,6 +251,7 @@ namespace fyp_hunger_nd_spice_.Controllers
             return RedirectToAction("indexcustomer");
         }
 
+      
 
 
 

@@ -121,27 +121,7 @@ namespace fyp_hunger_nd_spice_.Controllers
             Order o = (Order)Session["order"];
 
 
-            /* //Define email parameters
-            string senderEmail = "fizzamunawar227@gmail.com";
-            string recipientEmail = o.Order_Email;
-            string subject = "Order Confirmation";
-            string body = " <b>Hunger & Spice !</b> </br> Thanks for your order";
-
-            //// Create a MailMessage object
-            MailMessage mailMessage = new MailMessage(senderEmail, recipientEmail, subject, body);
-
-            //// Create a SmtpClient object
-            SmtpClient smtpClient = new SmtpClient("smtp.gmail.com", 587);
-
-            //// Set the SMTP client properties
-            smtpClient.EnableSsl = true;
-            smtpClient.UseDefaultCredentials = false;
-            smtpClient.Credentials = new System.Net.NetworkCredential("fizzamunawar227@gmail.com", "gcliobddrvgwtjvo");
-
-            //// Send the email
-            smtpClient.Send(mailMessage);
-            */
-
+            
 
             Order order = db.Orders.Add(o);
             db.SaveChanges();
@@ -178,9 +158,9 @@ namespace fyp_hunger_nd_spice_.Controllers
         {
             Session["Order"]= null;
             Session["mycart"]= null;
-            return RedirectToAction("indexcustomer");
+            return RedirectToAction("parchase");
         }
-
+        
 
 
     }
