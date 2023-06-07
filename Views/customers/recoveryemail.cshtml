@@ -1,0 +1,8 @@
+﻿<!-- _PasswordRecovery.cshtml partial view -->
+@model string
+
+<form id="passwordRecoveryForm">
+    <input type="email" name="email" placeholder="Email" required>
+    <button type="submit">Reset Password</button>
+    <div id="passwordRecoveryMessage">@Model</div>
+</form>

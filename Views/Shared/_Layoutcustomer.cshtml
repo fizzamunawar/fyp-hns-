@@ -199,6 +199,37 @@
 
                 <!-- Template Javascript -->
                 <script src="~/Content/customer/js/main.js"></script>
+                <script>
+                    // JavaScript code in your main page or layout file
+                    $(function () {
+                        // Show the password recovery form when the "Forgot Password" link/button is clicked
+                        $("#forgotPasswordLink").click(function (e) {
+                            e.preventDefault();
+                            $("#modalBody").load("/Customers/PasswordRecoveryForm");
+                            $("#myModal").modal("show"); // Assuming you are using a Bootstrap modal
+                        });
+
+                        // Submit the password recovery form
+                        $(document).on("submit", "#passwordRecoveryForm", function (e) {
+                            e.preventDefault();
+                            var formData = $(this).serialize();
+
+                            $.ajax({
+                                url: "/Customers/SendPasswordResetCode",
+                                type: "POST",
+                                data: formData,
+                                success: function (response) {
+                                    if (response.success) {
+                                        $("#passwordRecoveryMessage").text("Password recovery email sent. Please check your inbox.");
+                                    } else {
+                                        $("#passwordRecoveryMessage").text("Failed to send password recovery email. Please try again.");
+                                    }
+                                }
+                            });
+                        });
+                    });
+
+                </script>
 </body>
 
 </html>

@@ -47,6 +47,11 @@
         [Display(Name = "Contact Number")]
         public string Customer_contact { get; set; }
 
+     
+        [StringLength(11)] 
+        public string ResetCode { get; set; }
+
+        
         [StringLength(100)]
         [Required(ErrorMessage = "Please enter your address.")]
         [Display(Name = "Address")]

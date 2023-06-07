@@ -201,6 +201,10 @@
     <Compile Include="Migrations\202306051200271_jgu.designer.cs">
       <DependentUpon>202306051200271_jgu.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202306062111069_bss.cs" />
+    <Compile Include="Migrations\202306062111069_bss.designer.cs">
+      <DependentUpon>202306062111069_bss.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Feedback.cs" />
     <Compile Include="Models\Customer.cs" />
@@ -629,6 +633,12 @@
     <Content Include="Views\customers\SaleInvoice.cshtml" />
     <Content Include="Views\Report\Profitnloss.cshtml" />
     <Content Include="Views\Report\Customerreport.cshtml" />
+    <Content Include="Views\customers\forgotpassword.cshtml" />
+    <Content Include="Views\customers\passswordrest.cshtml" />
+    <Content Include="Views\customers\recoveryemail.cshtml" />
+    <Content Include="Views\customers\Resetpassword.cshtml" />
+    <Content Include="Views\customers\reset invalid.cshtml" />
+    <Content Include="Views\Shared\passwordrecovery.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -684,6 +694,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202306051200271_jgu.resx">
       <DependentUpon>202306051200271_jgu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202306062111069_bss.resx">
+      <DependentUpon>202306062111069_bss.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -484,3 +484,4 @@ C:\web\fyp\fyp\fyp-hns-\obj\Debug\fyp(hunger nd spice).csproj.CoreCompileInputs.
 C:\web\fyp\fyp\fyp-hns-\obj\Debug\fyp(hunger nd spice).csproj.CopyComplete
 C:\web\fyp\fyp\fyp-hns-\obj\Debug\fyp(hunger nd spice).dll
 C:\web\fyp\fyp\fyp-hns-\obj\Debug\fyp(hunger nd spice).pdb
+C:\web\fyp\fyp\fyp-hns-\obj\Debug\fyp_hunger_nd_spice_.Migrations.bss.resources
